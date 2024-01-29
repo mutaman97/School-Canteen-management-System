@@ -32,7 +32,7 @@ class StripeController extends Controller
                     'name' => $student->student_name,
 //                    'images' => [$product->image]
                 ],
-                'unit_amount' => $request->input('amount') * 10,
+                'unit_amount' => $request->input('amount') * 100 ,
             ],
             'quantity' => 1,
         ];
@@ -73,13 +73,13 @@ class StripeController extends Controller
         $sessionId = $request->get('session_id');
 
         $session = \Stripe\Checkout\Session::retrieve($sessionId);
-        $amount = $session->amount_total;
+        $charge = $session->amount_total/100;
 
             $card_no = $session->client_reference_id;
 
             $student = Student::where('card_no', $card_no)->first();
             $balance= $student->balance;
-            $new_balance = $balance + $amount;
+            $new_balance = $balance + $charge;
 
             $student->balance = $new_balance;
             $student->save();
