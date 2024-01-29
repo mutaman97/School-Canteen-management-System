@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
 
@@ -31,3 +31,80 @@ Route::prefix('employee')
 				Route::post('logout', 'EmployeeController@logout')->name('logout');
     		});
 	});
+
+Route::prefix('parent')
+    ->as('parent.')
+    ->group(function() {
+        Route::get('home', 'Home\StudentparentHomeController@index')->name('home');
+
+        Route::namespace('Auth\Login')
+            ->group(function() {
+                Route::get('login', 'StudentparentController@showLoginForm')->name('login');
+                Route::post('login', 'StudentparentController@login')->name('login');
+                Route::post('logout', 'StudentparentController@logout')->name('logout');
+            });
+    });
+
+Route::prefix('student')
+    ->as('student.')
+    ->group(function() {
+        Route::get('home', 'Home\StudentHomeController@index')->name('login.home');
+
+        Route::namespace('Auth\Login')
+            ->group(function() {
+                Route::get('login', 'StudentController@showLoginForm')->name('login');
+                Route::post('login', 'StudentController@login')->name('login');
+                Route::post('logout', 'StudentController@logout')->name('logout');
+            });
+    });
+
+Route::prefix('parent')
+    ->as('parent.')->namespace('Parent')
+    ->group(function() {
+
+//        Route::get('home', 'Home\StudentparentHomeController@index')->name('home');
+//
+//        Route::namespace('Auth\Login')
+//            ->group(function() {
+//                Route::get('login', 'StudentparentController@showLoginForm')->name('login');
+//                Route::post('login', 'StudentparentController@login')->name('login');
+//                Route::post('logout', 'StudentparentController@logout')->name('logout');
+//            });
+
+        Route::get('/', 'DashboardController@index')->name('dashboard');
+        Route::get('/dashboard-data', 'DashboardController@staticData');
+
+        // Deposit
+        Route::get('deposit','PlanController@depo')->name('depo');
+
+        // Select Student
+        Route::get('student','PlanController@student')->name('student.payment');
+
+        //Report Route
+        Route::resource('report', 'ReportController');
+    });
+
+Route::prefix('student')
+    ->as('merchant.')->namespace('Merchant')->group( function ()
+{
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::get('/dashboard-data', 'DashboardController@staticData');
+
+    // Deposit
+    Route::get('deposit','PlanController@depo')->name('depo');
+
+    // Select Student
+    Route::get('student','PlanController@student')->name('student.payment');
+
+    //Report Route
+    Route::resource('report', 'ReportController');
+});
+
+
+
+Route::get('/', 'StripeController@index');
+Route::post('/checkout', 'StripeController@checkout')->name('checkout');
+Route::get('/success', 'StripeController@success')->name('checkout.success');
+Route::get('/cancel', 'StripeController@cancel')->name('checkout.cancel');
+Route::post('/webhook', 'StripeController@webhook')->name('checkout.webhook');
+

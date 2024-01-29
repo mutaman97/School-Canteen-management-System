@@ -42,6 +42,18 @@ return [
             'provider' => 'users',
         ],
 
+        'student' => [
+            'redirectTo' => 'student.home',
+            'driver' => 'session',
+            'provider' => 'student',
+        ],
+
+        'studentparent' => [
+            'redirectTo' => 'parent.home',
+            'driver' => 'session',
+            'provider' => 'studentparent',
+        ],
+
         'employee' => [
             'redirectTo' => 'employee.home',
             'driver' => 'session',
@@ -87,6 +99,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'student' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
+        ],
+
+        'studentparent' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Studentparent::class,
         ],
 
         'employee' => [
