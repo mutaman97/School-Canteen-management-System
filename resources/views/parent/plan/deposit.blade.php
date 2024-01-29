@@ -22,8 +22,8 @@
                 <div class="form-divider"></div>
                 <div class="card-body">
                     <div class="current-banlence text-center mb-4">
-                        <p class="h4" class="text-dark">{{ __('Add Balance To Card') }}</p>
-{{--                        <h4 class="text-primary">{{ __('AED') }}&nbsp;{{ number_format(205132, 2) ?? 0 }}</h4>--}}
+                        <p class="h4" class="text-dark">{{ __('Add Balance To') }}</p>
+                        <h4 class="text-primary">{{ $student->student_name }}</h4>
                     </div>
                     <form action="{{ route('checkout') }}" method="POST">
                         @csrf
@@ -39,19 +39,9 @@
                                 </div>
                             </div>
                         </div>
+                        <input type="hidden" name="card_no" value="{{ $student->card_no }}">
 
-                        <div class="form-group row mb-4">
-                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">{{ __('Enter Card Number') }}</label>
-                            <div class="input-group col-sm-12 col-md-7">
-                                {{-- <div class="input-group-prepend">
-                                <span class="input-group-text">$</span>
-                                </div> --}}
-                                <input type="number" required="" step="any" class="form-control" name="card_no">
-{{--                                <div class="input-group-append">--}}
-{{--                                    <span class="input-group-text">{{ __('AED') }}</span>--}}
-{{--                                </div>--}}
-                            </div>
-                        </div>
+
 
                         <div class="form-group row mb-4">
                             <div class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></div>

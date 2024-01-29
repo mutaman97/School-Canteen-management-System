@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentparentHomeController extends Controller
@@ -25,5 +26,12 @@ class StudentparentHomeController extends Controller
     public function index()
     {
         return view('home.student-parent');
+    }
+
+
+    public function show(Student $student)
+    {
+
+        return view('parent.plan.deposit');
     }
 }

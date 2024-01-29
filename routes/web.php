@@ -17,7 +17,7 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::prefix('employee')
     ->as('employee.')
@@ -35,7 +35,7 @@ Route::prefix('employee')
 Route::prefix('parent')
     ->as('parent.')
     ->group(function() {
-        Route::get('home', 'Home\StudentparentHomeController@index')->name('home');
+        Route::get('/home', 'Home\StudentparentHomeController@index')->name('home');
 
         Route::namespace('Auth\Login')
             ->group(function() {
@@ -71,14 +71,14 @@ Route::prefix('parent')
 //                Route::post('logout', 'StudentparentController@logout')->name('logout');
 //            });
 
-        Route::get('/', 'DashboardController@index')->name('dashboard');
-        Route::get('/dashboard-data', 'DashboardController@staticData');
+//        Route::get('/', 'DashboardController@index')->name('dashboard');
+//        Route::get('/dashboard-data', 'DashboardController@staticData');
 
         // Deposit
-        Route::get('deposit','PlanController@depo')->name('depo');
+        Route::get('deposit/{student}','PlanController@depo')->name('depo');
 
         // Select Student
-        Route::get('student','PlanController@student')->name('student.payment');
+        Route::get('/','PlanController@student')->name('student.payment');
 
         //Report Route
         Route::resource('report', 'ReportController');
@@ -100,9 +100,6 @@ Route::prefix('student')
     Route::resource('report', 'ReportController');
 });
 
-
-
-Route::get('/', 'StripeController@index');
 Route::post('/checkout', 'StripeController@checkout')->name('checkout');
 Route::get('/success', 'StripeController@success')->name('checkout.success');
 Route::get('/cancel', 'StripeController@cancel')->name('checkout.cancel');

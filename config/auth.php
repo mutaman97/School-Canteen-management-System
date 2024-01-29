@@ -49,7 +49,7 @@ return [
         ],
 
         'studentparent' => [
-            'redirectTo' => 'parent.home',
+            'redirectTo' => 'parent.student.payment',
             'driver' => 'session',
             'provider' => 'studentparent',
         ],

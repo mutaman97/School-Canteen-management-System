@@ -34,6 +34,12 @@ class PlanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth:studentparent');
+    }
+
+
     public function index()
     {
         $plans = Plan::where([['status', 1], ['is_default', 0]])->get();
@@ -41,22 +47,23 @@ class PlanController extends Controller
         return view('merchant.plan.index', compact('plans', 'orders'));
     }
 
-    public function depo(Request $request)
+    public function depo(Student $student)
     {
 
-        return view('parent.plan.deposit');
+
+        return view('parent.plan.deposit', compact('student'));
     }
 
     public function student()
     {
-        $parent_code = Auth::guard('studentparent')->user()->parent_code;
+        $parent_code = Auth::guard('studentparent')->user()->parent_code ?? null;
 
 
         $students = Student::where('parent_code', $parent_code)->get();
 
-//        dd($students);
-
         return view('parent.plan.index',compact('students'));
+
+
     }
 
     public function gateways($planid)

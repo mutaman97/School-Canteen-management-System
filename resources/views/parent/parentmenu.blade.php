@@ -1,19 +1,10 @@
-<li class="menu-header">{{ __('Dashboard') }}</li>
-<li class="{{ Request::is('parent/dashboard') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('parent.dashboard') }}">
-        <i class="fas fa-tachometer-alt"></i>
-        <span>{{ __('Dashboard') }}</span>
-    </a>
-</li>
-
-<li class="menu-header">{{ __('Deposit') }}</li>
-<li class="{{ Request::is('parent/deposit') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('parent.depo') }}">
-        <i class="fas fa-money-check"></i>
-        <span>{{ __('Deposit') }}</span>
-    </a>
-</li>
-
+{{--<li class="menu-header">{{ __('Dashboard') }}</li>--}}
+{{--<li class="{{ Request::is('parent/dashboard') ? 'active' : '' }}">--}}
+{{--    <a class="nav-link" href="{{ route('parent.dashboard') }}">--}}
+{{--        <i class="fas fa-tachometer-alt"></i>--}}
+{{--        <span>{{ __('Dashboard') }}</span>--}}
+{{--    </a>--}}
+{{--</li>--}}
 
 <li class="menu-header">{{ __('Students') }}</li>
 
@@ -25,6 +16,13 @@
 </li>
 
 
+{{--<li class="menu-header">{{ __('Deposit') }}</li>--}}
+{{--<li class="{{ Request::is('parent/deposit') ? 'active' : '' }}">--}}
+{{--    <a class="nav-link" href="{{ route('parent.depo') }}">--}}
+{{--        <i class="fas fa-money-check"></i>--}}
+{{--        <span>{{ __('Deposit') }}</span>--}}
+{{--    </a>--}}
+{{--</li>--}}
 
 <li class="menu-header">{{ __('Payments History') }}</li>
 <li class="{{ Request::is('/parent/report') ? 'active' : '' }}">

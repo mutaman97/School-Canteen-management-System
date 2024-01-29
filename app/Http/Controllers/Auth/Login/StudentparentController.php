@@ -12,7 +12,7 @@ class StudentparentController extends DefaultLoginController
      *
      * @var string
      */
-    protected $redirectTo = '/parent/home';
+    protected $redirectTo = '/parent';
 
     /**
      * Create a new controller instance.
