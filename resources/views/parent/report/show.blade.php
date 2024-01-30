@@ -13,7 +13,7 @@
     <div class="invoice" id="printableArea">
         <div class="row">
             <div class="col-7">
-                <h4 class="display-5">{{ $data->invoice_no }}</h4>
+                <h4 class="display-5">{{__('Invoice Number: ')}}{{ $data->id }}</h4>
             </div>
             <div class="col-5">
                 <h4 class="document-type display-5 text-right">{{ config('app.name') }}</h4>
@@ -24,15 +24,15 @@
             <div class="col-md-6">
                 <address>
                     <strong>{{ __('Billed To:') }}</strong><br>
-                    {{ $data->user->name }}<br>
-                    {{ $data->user->email }}<br>
-                    {{ $data->user->phone ?? null }}<br>
+                    {{ $student->student_parent }}<br>
+                    {{ $student->email }}<br>
+                    {{ $student->mobile ?? null }}<br>
                 </address>
             </div>
             <div class="col-md-6 text-md-right">
                 <address>
-                    <strong>{{ __('payment Date:') }}</strong><br>
-                    {{ $data->created_at->format('M d Y') }}<br>
+                    <strong>{{ __('Payment Date:') }}</strong><br>
+                    {{ $data->balance_date }}<br>
                 </address>
             </div>
         </div>
@@ -42,60 +42,72 @@
                     <th>{{ __('Title') }}</th>
                     <th>{{ __('Description') }}</th>
                 </tr>
-                <tr>
-                    <td>{{ __('Plan') }}</td>
-                    <td>{{ $data->plan->name ?? 'null' }}</td>
-                </tr>
-                <tr>
-                    <td>{{ __('Expire At') }}</td>
-                    <td>{{ \Carbon\Carbon::parse($data->will_expire)->isoFormat('LL') ?? 'null' }}</td>
-                </tr>
-                <tr>
-                    <td>{{ __('Gateway Method Name') }}</td>
-                    <td>{{ $data->getway->name ?? 'null' }}</td>
-                </tr>
-                <tr>
-                    <td>{{ __('Order Amount') }}</td>
-                    <td>{{ amount_admin_format($data->price)}}</td>
-                </tr>
-                <tr>
-                    <td>{{ __('Tax') }}</td>
-                    <td>{{ amount_admin_format($data->tax) }}</td>
-                </tr>
-                <tr>
-                    <td>{{ __('Trx Id') }}</td>
-                    <td>{{ $data->trx ?? '' }}</td>
-                </tr>
-                @if(!empty($data->ordermeta))
-                @php
-                $comments=json_decode($data->ordermeta->value);
+{{--                <tr>--}}
+{{--                    <td>{{ __('Plan') }}</td>--}}
+{{--                    <td>{{ $data->plan->name ?? 'null' }}</td>--}}
+{{--                </tr>--}}
+{{--                <tr>--}}
+{{--                    <td>{{ __('Expire At') }}</td>--}}
+{{--                    <td>{{ \Carbon\Carbon::parse($data->will_expire)->isoFormat('LL') ?? 'null' }}</td>--}}
+{{--                </tr>--}}
+{{--                <tr>--}}
+{{--                    <td>{{ __('Gateway Method Name') }}</td>--}}
+{{--                    <td>{{ $data->getway->name ?? 'null' }}</td>--}}
+{{--                </tr>--}}
 
-                @endphp
                 <tr>
-                    <td>{{ __('Attachment') }}</td>
-                    <td><a href="{{ asset($comments->screenshot) }}" target="_blank">View</a></td>
+                    <td>{{ __('Student Name') }}</td>
+                    <td>{{ $student->student_name }}</td>
+                </tr>
+                <tr>
+                    <td>{{ __('Amount Charged') }}</td>
+                    <td>{{ $data->balance }}</td>
+                </tr>
+                <tr>
+                    <td>{{ __('Balace Before') }}</td>
+                    <td>{{ $data->balance_before }}</td>
+                </tr>
+                <tr>
+                    <td>{{ __('Balance After') }}</td>
+                    <td>{{ $data->balance_after}}</td>
+                </tr>
+{{--                @if(!empty($data->ordermeta))--}}
+{{--                @php--}}
+{{--                $comments=json_decode($data->ordermeta->value);--}}
 
-                </tr>
-                <tr>
-                    <td>{{ __('Comment') }}</td>
-                    <td>{{ $comments->comment }}</td>
-                </tr>
-                @endif
-                <tr>
-                    <td>{{ __('Status') }}</td>
-                    <td>
-                        @if ($data->status == 1)
-                        <span>{{ __('Active') }}</span>
-                        @elseif($data->status == 2)
-                        <span>{{ __('Pending') }}</span>
-                        @else
-                        <span>{{ __('Deactive') }}</span>
-                        @endif
-                    </td>
-                </tr>
+{{--                @endphp--}}
+{{--                <tr>--}}
+{{--                    <td>{{ __('Attachment') }}</td>--}}
+{{--                    <td><a href="{{ asset($comments->screenshot) }}" target="_blank">View</a></td>--}}
+
+{{--                </tr>--}}
+{{--                <tr>--}}
+{{--                    <td>{{ __('Comment') }}</td>--}}
+{{--                    <td>{{ $comments->comment }}</td>--}}
+{{--                </tr>--}}
+{{--                @endif--}}
+{{--                <tr>--}}
+{{--                    <td>{{ __('Status') }}</td>--}}
+{{--                    <td>--}}
+{{--                        @if ($data->status == 1)--}}
+{{--                        <span>{{ __('Active') }}</span>--}}
+{{--                        @elseif($data->status == 2)--}}
+{{--                        <span>{{ __('Pending') }}</span>--}}
+{{--                        @else--}}
+{{--                        <span>{{ __('Deactive') }}</span>--}}
+{{--                        @endif--}}
+{{--                    </td>--}}
+{{--                </tr>--}}
             </tbody>
         </table>
     </div>
+
+    <a href="{{ route('parent.payment-invoice', $data->id) }}">
+        <button class="btn btn-primary btn-icon icon-left"><i class="fas fa-download"></i>
+            {{ __('Download') }}
+        </button>
+    </a>
+
     <button class="btn btn-warning btn-icon icon-left printableArea"><i class="fas fa-print"></i>
         {{ __('Print') }}
     </button>

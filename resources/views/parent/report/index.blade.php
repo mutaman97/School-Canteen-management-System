@@ -69,7 +69,9 @@
                             <thead>
                                 <tr>
                                     <th>{{ __('SL.') }}</th>
-                                    <th>{{ __('Amount') }}</th>
+                                    <th>{{ __('Student Name') }}</th>
+                                    <th>{{ __('Card Number') }}</th>
+                                    <th>{{ __('Charge Amount') }}</th>
 
                                     <th>{{ __('Date') }}</th>
                                     <th>{{ __('Action') }}</th>
@@ -80,14 +82,21 @@
                                     $i = ($data->currentpage() - 1) * $data->perpage() + 1;
                                 @endphp
                                 @forelse($data as $key =>$value)
+                                    @php
+                                        $name = $student->where('student_code', $value->student_code)->firstOrFail()->student_name;
+                                    @endphp
                                 <tr>
                                         <td>{{ $i++ }}</td>
-                                        <td>{{ $value->balance ?? 'null' }}</td>
+                                    <td>{{ $name ?? 'null' }}</td>
+
+                                    <td>{{ $value->card_no ?? 'null' }}</td>
+
+                                    <td>{{ $value->balance ?? 'null' }} {{__('AED')}}</td>
 
                                         <td>{{ $value->balance_date ?? 'null' }}</td>
 
                                         <td>
-                                            <a class="btn btn-sm btn-outline-primary" href="{{ route('merchant.report.show', $value->id) }}" data-toggle="tooltip" title="{{ __('View') }}"><i class="fas fa-eye"></i></a>
+                                            <a class="btn btn-sm btn-outline-primary" href="{{ route('parent.report.show', $value->id) }}" data-toggle="tooltip" title="{{ __('View') }}"><i class="fas fa-eye"></i> {{ __('View Details') }}</a>
                                         </td>
                                     </tr>
                                 @empty

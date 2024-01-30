@@ -129,12 +129,12 @@
             <td colspan="2">
                 <table>
                     <tr>
-                        <td>User Info<br></td>
+                        <td>Parent Details<br></td>
 
                         <td>
-                            {{Auth::user()->name}}<br>
-                            {{Auth::user()->email}}<br>
-                            {{Auth::user()->phone ?? null}}
+                            {{Auth::guard('studentparent')->user()->student_parent}}<br>
+                            {{Auth::guard('studentparent')->user()->email}}<br>
+                            {{Auth::guard('studentparent')->user()->mobile ?? null}}
                         </td>
                     </tr>
                 </table>
@@ -146,62 +146,76 @@
             <td>Details</td>
         </tr>
         <tr class="item">
-            <td>Request Created Date:</td>
-            <td>{{$data->created_at->format('M d Y')}}</td>
+            <td>Payment Date</td>
+            <td>{{$data->balance_date}}</td>
+        </tr>
+{{--        <tr class="item">--}}
+{{--            <td>Plan Name:</td>--}}
+{{--            <td>{{$data->plan->name ?? 'null'}}</td>--}}
+{{--        </tr>--}}
+        <tr class="item">
+            <td>Student Name</td>
+            <td>{{ $student->student_name }}</td>
         </tr>
         <tr class="item">
-            <td>Plan Name:</td>
-            <td>{{$data->plan->name ?? 'null'}}</td>
-        </tr>
-        <tr class="item">
-            <td>Getway:</td>
-            <td>{{ $data->getway->name }}</td>
+            <td>Card Number</td>
+            <td>{{ $student->card_no }}</td>
         </tr>
         <tr>
-            <td>Amount:</td>
-            <td>{{ $data->price }}</td>
+            <td>{{ __('Amount Charged') }}</td>
+            <td>{{ $data->balance }}</td>
+        </tr>
+        <tr>
+            <td>{{ __('Balace Before') }}</td>
+            <td>{{ $data->balance_before }}</td>
+        </tr>
+        <tr>
+            <td>{{ __('Balance After') }}</td>
+            <td>{{ $data->balance_after}}</td>
         </tr>
 
-        <tr>
-            <td>Tax:</td>
-            <td>{{ $data->tax }}</td>
-        </tr>
 
-        <tr>
-            <td>Exp Date:</td>
-            <td>{{ $data->will_expire }}</td>
-        </tr>
 
-        <tr>
-            <td>Payment Id</td>
-            <td><b>{{$data->trx ?? 'null'}}</b></td>
-        </tr>
-        <tr>
-            <td>Total (Including Tax)</td>
-            <td>{{ (round($data->price + (($data->price / 100) * $data->tax), 2) * $data->getway->rate) + $data->getway->charge }} ({{ $data->getway->currency_name }})</td>
-        </tr>
-        <tr>
-            <td>Payment Status</td>
-            <td>@if($data->payment_status ==1)
-                    <span>Success</span>
-                @elseif($data->payment_status == 2)
-                    <span>Pending</span>
-                @else
-                    <span>Expired</span>
-                @endif
-            </td>
-        </tr>
-        <tr>
-            <td>Status</td>
-            <td>@if($data->status ==1)
-                    <span>Success</span>
-                @elseif($data->status == 2)
-                    <span>Pending</span>
-                @else
-                    <span>Deactive</span>
-                @endif
-            </td>
-        </tr>
+{{--        <tr>--}}
+{{--            <td>Tax:</td>--}}
+{{--            <td>{{ $data->tax }}</td>--}}
+{{--        </tr>--}}
+
+{{--        <tr>--}}
+{{--            <td>Exp Date:</td>--}}
+{{--            <td>{{ $data->will_expire }}</td>--}}
+{{--        </tr>--}}
+
+{{--        <tr>--}}
+{{--            <td>Payment Id</td>--}}
+{{--            <td><b>{{$data->trx ?? 'null'}}</b></td>--}}
+{{--        </tr>--}}
+{{--        <tr>--}}
+{{--            <td>Total (Including Tax)</td>--}}
+{{--            <td>{{ (round($data->price + (($data->price / 100) * $data->tax), 2) * $data->getway->rate) + $data->getway->charge }} ({{ $data->getway->currency_name }})</td>--}}
+{{--        </tr>--}}
+{{--        <tr>--}}
+{{--            <td>Payment Status</td>--}}
+{{--            <td>@if($data->payment_status ==1)--}}
+{{--                    <span>Success</span>--}}
+{{--                @elseif($data->payment_status == 2)--}}
+{{--                    <span>Pending</span>--}}
+{{--                @else--}}
+{{--                    <span>Expired</span>--}}
+{{--                @endif--}}
+{{--            </td>--}}
+{{--        </tr>--}}
+{{--        <tr>--}}
+{{--            <td>Status</td>--}}
+{{--            <td>@if($data->status ==1)--}}
+{{--                    <span>Success</span>--}}
+{{--                @elseif($data->status == 2)--}}
+{{--                    <span>Pending</span>--}}
+{{--                @else--}}
+{{--                    <span>Deactive</span>--}}
+{{--                @endif--}}
+{{--            </td>--}}
+{{--        </tr>--}}
     </table>
 </div>
 </body>

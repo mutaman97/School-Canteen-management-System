@@ -96,7 +96,7 @@ function gravatar($email)
     $hash = md5(strtolower(trim($email)));
     $uri = "https://www.gravatar.com/avatar/{$hash}?d=404";
 
-    $client = new Client();
+    $client = new Client(['verify' => false]);
     $response = $client->get($uri, ['http_errors' => false]);
 
     if ($response->getStatusCode() !== 200)

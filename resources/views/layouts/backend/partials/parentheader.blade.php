@@ -24,10 +24,10 @@
 
     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
 
-      <img alt="image" src="#"
+      <img alt="image" src="{{ gravatar('test@email.com') }}"
       class="rounded-circle profile-widget-picture ">
 
-      <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name ?? '' }}</div></a>
+      <div class="d-sm-none d-lg-inline-block">{{ Auth::guard('studentparent')->user()->student_parent ?? '' }}</div></a>
       <div class="dropdown-menu dropdown-menu-right">
           <a href="{{ route('logout') }}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();" class="dropdown-item has-icon text-danger">

@@ -17,10 +17,10 @@
     @forelse ($students ?? [] as $student)
         <div class="col-12 col-md-4 col-lg-4">
             {{-- <div class="pricing {{ $plan->is_featured ? 'pricing-highlight' : '' }}"> --}}
-            <div class="pricing pricing-highlight">
+            <div class="pricing pricing-highlight shadow-lg">
                 <div class="pricing-padding">
                     <div class="user-item">
-                        <img alt="image" src="{{ url("/assets/img/avatar-1.png") }}" class="img-fluid" width="150" height="150">
+                        <img alt="image" src="{{ __('https://ui-avatars.com/api/') . $student->student_name }}" class="img-fluid" width="250" height="250">
                         <div class="user-details">
                             <div class="h4 ">{{ $student->student_name }}</div>
 
@@ -30,7 +30,7 @@
                         <div>{{ $student->balance }}&nbsp;{{ __('AED') }}</div>
                     </div>
                     <div class="pricing-details">
-                        <div class="h6">{{__('Card Number: ' . $student->card_no)}}</div>
+                        <div class="h5">{{__('Card Number: ' . $student->card_no)}}</div>
                     </div>
                 </div>
                 <div class="pricing-cta">

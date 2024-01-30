@@ -33,9 +33,9 @@
                                 {{-- <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                                 </div> --}}
-                                <input type="number" required="" step="any" class="form-control" name="amount">
+                                <input type="number" placeholder="{{ __('Enter amount here ...') }}" required="" step="any" class="form-control border-dark shadow" name="amount">
                                 <div class="input-group-append">
-                                    <span class="input-group-text">{{ __('AED') }}</span>
+                                    <span class="input-group-text border-dark shadow">{{ __('AED') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                             <div class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></div>
                             <div class="col-sm-12 col-md-7">
                                 <div class="buton-btn float-right">
-                                    <button type="submit" class="btn btn-primary btn-lg">{{ __('Next') }}</button>
+                                    <button type="submit" class="btn btn-primary btn-lg shadow">{{ __('Next') }}</button>
                                 </div>
                             </div>
                         </div>

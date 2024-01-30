@@ -82,6 +82,9 @@ Route::prefix('parent')
 
         //Report Route
         Route::resource('report', 'ReportController');
+
+        //Download Pdf
+        Route::get('payment-invoice/{id}', 'ReportController@invoicePdf')->name('payment-invoice');
     });
 
 Route::prefix('student')
