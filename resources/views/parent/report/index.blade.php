@@ -78,15 +78,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @php
-                                    $i = ($data->currentpage() - 1) * $data->perpage() + 1;
-                                @endphp
+{{--                                @php--}}
+{{--                                    $i = ($data->currentpage() - 1) * $data->perpage() + 1;--}}
+{{--                                @endphp--}}
                                 @forelse($data as $key =>$value)
                                     @php
-                                        $name = $student->where('student_code', $value->student_code)->firstOrFail()->student_name;
+                                        $student = \App\Models\Student::where('student_code', $value->student_code)->firstOrFail();
+                                        $name = $student->student_name;
                                     @endphp
                                 <tr>
-                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $name ?? 'null' }}</td>
 
                                     <td>{{ $value->card_no ?? 'null' }}</td>

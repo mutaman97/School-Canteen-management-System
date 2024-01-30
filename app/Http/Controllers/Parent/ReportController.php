@@ -20,8 +20,6 @@ class ReportController extends Controller
     {
         $parent_code = Auth::guard('studentparent')->user()->parent_code;
 
-        $student = Student::where('parent_code', $parent_code);
-
         $data = Order::where('parent_code', $parent_code);
 
         // $data = Order::with('getway', 'user','plan')->where('user_id', $id);
@@ -61,7 +59,7 @@ class ReportController extends Controller
         }
 
         $data = $data->paginate(150);
-        return view('parent.report.index', compact('data', 'student'));
+        return view('parent.report.index', compact('data'));
     }
 
 
