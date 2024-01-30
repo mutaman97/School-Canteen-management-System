@@ -17,9 +17,9 @@ class Order extends Model
      *
      * @var array
      */
-    // protected $fillable = [
-    //     'invoice_no',
-    // ];
+     protected $fillable = [
+         'parent_code', 'card_no', 'balance', 'balance_before', 'balance_after', 'balance_date', 'balance_time', 'user_id'
+     ];
 
     // public static function boot()
     // {

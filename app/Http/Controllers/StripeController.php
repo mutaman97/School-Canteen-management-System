@@ -75,14 +75,31 @@ class StripeController extends Controller
         $session = \Stripe\Checkout\Session::retrieve($sessionId);
         $charge = $session->amount_total/100;
 
-            $card_no = $session->client_reference_id;
+        $card_no = $session->client_reference_id;
 
-            $student = Student::where('card_no', $card_no)->first();
-            $balance= $student->balance;
-            $new_balance = $balance + $charge;
+        $student = Student::where('card_no', $card_no)->first();
+        $balance= $student->balance;
+        $new_balance = $balance + $charge;
+        $student->balance = $new_balance;
+        $student->save();
 
-            $student->balance = $new_balance;
-            $student->save();
+        $current_time = time(); // Get the current Unix timestamp
+        $formatted_time = date("H:i:s", $current_time);
+        $formatted_date = date("Y-m-d", $current_time);
+
+        $order = new Order();
+
+        $order->parent_code = $student->parent_code;
+        $order->student_code = $student->student_code;
+        $order->card_no = $card_no;
+        $order->balance = $balance;
+        $order->balance_before = $balance - $charge;
+        $order->balance_after = $new_balance;
+        $order->balance_date = $formatted_date;
+        $order->balance_time = $formatted_time;
+        $order->user_id = 59;
+        $order->trx_id = $session->id;
+        $order->save();
 
 //        try {
 //            $session = \Stripe\Checkout\Session::retrieve($sessionId);
