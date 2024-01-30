@@ -81,7 +81,7 @@ class StripeController extends Controller
         $balance= $student->balance;
         $new_balance = $balance + $charge;
         $student->balance = $new_balance;
-        $student->save();
+
 
         $current_time = time(); // Get the current Unix timestamp
         $formatted_time = date("H:i:s", $current_time);
@@ -92,13 +92,15 @@ class StripeController extends Controller
         $order->parent_code = $student->parent_code;
         $order->student_code = $student->student_code;
         $order->card_no = $card_no;
-        $order->balance = $balance;
+        $order->balance = $charge;
         $order->balance_before = $balance - $charge;
         $order->balance_after = $new_balance;
         $order->balance_date = $formatted_date;
         $order->balance_time = $formatted_time;
         $order->user_id = 59;
         $order->trx_id = $session->id;
+
+        $student->save();
         $order->save();
 
 //        try {

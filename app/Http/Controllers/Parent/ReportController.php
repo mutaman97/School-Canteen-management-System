@@ -60,7 +60,7 @@ class ReportController extends Controller
 
         }
 
-        $data = $data->paginate(15);
+        $data = $data->paginate(150);
         return view('parent.report.index', compact('data', 'student'));
     }
 
