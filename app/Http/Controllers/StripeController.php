@@ -78,8 +78,9 @@ class StripeController extends Controller
         $card_no = $session->client_reference_id;
 
         $student = Student::where('card_no', $card_no)->first();
-        $balance= $student->balance;
-        $new_balance = $balance + $charge;
+        $old_balance= $student->balance;
+        $new_balance = $old_balance + $charge;
+
         $student->balance = $new_balance;
 
 
@@ -93,7 +94,7 @@ class StripeController extends Controller
         $order->student_code = $student->student_code;
         $order->card_no = $card_no;
         $order->balance = $charge;
-        $order->balance_before = $balance - $charge;
+        $order->balance_before = $old_balance;
         $order->balance_after = $new_balance;
         $order->balance_date = $formatted_date;
         $order->balance_time = $formatted_time;
