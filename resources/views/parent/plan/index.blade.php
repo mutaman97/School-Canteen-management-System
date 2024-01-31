@@ -15,7 +15,7 @@
     </div>
 
     @forelse ($students ?? [] as $student)
-        <div class="col-12 col-md-4 col-lg-4">
+        <div class="col-12 col-md-4 col-lg-3">
             {{-- <div class="pricing {{ $plan->is_featured ? 'pricing-highlight' : '' }}"> --}}
             <div class="pricing pricing-highlight shadow-lg">
                 <div class="pricing-padding">
@@ -26,11 +26,13 @@
 
                         </div>
                     </div>
-                    <div class="h3 text-primary py-4">
-                        <div>{{ $student->balance }}&nbsp;{{ __('AED') }}</div>
+                    <div class="py-4">
+                        <div class="h6 text-center">{{__('Balance')}}</div>
+                        <div class="h3 text-primary">{{ $student->balance }}&nbsp;{{ __('AED') }}</div>
                     </div>
                     <div class="pricing-details">
-                        <div class="h5">{{__('Card Number: ' . $student->card_no)}}</div>
+                        <div class="h6 text-center">{{__('Card Number')}}</div>
+                        <div class="h3 text-center">{{__($student->card_no)}}</div>
                     </div>
                 </div>
                 <div class="pricing-cta">

@@ -17,7 +17,7 @@
                     </div>
                 @endif
                 <div class="table-responsive">
-                    <table class="table table-striped" id="table-2">
+                    <table class="table table-striped table-hover" id="table-2">
                         <tr>
                             <th>{{ __('Title') }}</th>
                             <th>{{ __('Details') }}</th>

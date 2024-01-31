@@ -26,9 +26,13 @@
 
       <img alt="image" src="#"
       class="rounded-circle profile-widget-picture ">
-
       <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name ?? '' }}</div></a>
       <div class="dropdown-menu dropdown-menu-right">
+
+          <a href="{{ url('/mysettings') }}" class="dropdown-item has-icon">
+              <i class="far fa-user"></i> {{ __('Profile') }}
+          </a>
+          <div class="dropdown-divider"></div>
           <a href="{{ route('logout') }}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();" class="dropdown-item has-icon text-danger">
         <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}

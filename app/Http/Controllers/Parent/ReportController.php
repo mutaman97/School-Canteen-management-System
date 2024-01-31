@@ -16,6 +16,12 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:studentparent');
+    }
+
     public function index(Request $request)
     {
         $parent_code = Auth::guard('studentparent')->user()->parent_code;

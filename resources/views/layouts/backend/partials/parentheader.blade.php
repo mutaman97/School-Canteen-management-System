@@ -22,21 +22,24 @@
   <ul class="navbar-nav navbar-right">
 
 
-    <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-
-      <img alt="image" src="{{ gravatar('test@email.com') }}"
-      class="rounded-circle profile-widget-picture ">
-
-      <div class="d-sm-none d-lg-inline-block">{{ Auth::guard('studentparent')->user()->student_parent ?? '' }}</div></a>
-      <div class="dropdown-menu dropdown-menu-right">
+      <li class="dropdown">
+          <a href="{{ gravatar('test@email.com') }}" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+              <img alt="image" src="{{ gravatar('test@email.com') }}" class="rounded-circle profile-widget-picture ">
+              <div class="d-sm-none d-lg-inline-block">{{ Auth::guard('studentparent')->user()->student_parent ?? ''}}</div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a href="{{ route('parent.myprofile') }}" class="dropdown-item has-icon">
+                  <i class="far fa-user"></i> {{ __('Profile') }}
+          </a>
+          <div class="dropdown-divider"></div>
           <a href="{{ route('logout') }}" onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();" class="dropdown-item has-icon text-danger">
-        <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
-      </a>
-      <form id="logout-form" action="{{ url('/logout') }}" method="POST" class="d-none">
-        @csrf
-      </form>
-    </div>
-  </li>
+            document.getElementById('logout-form').submit();" class="dropdown-item has-icon text-danger">
+              <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+          </a>
+          <form id="logout-form" action="{{ url('/logout') }}" method="POST" class="d-none">
+              @csrf
+          </form>
+          </div>
+      </li>
 </ul>
 </nav>

@@ -42,8 +42,11 @@ Route::prefix('parent')
                 Route::get('login', 'StudentparentController@showLoginForm')->name('login');
                 Route::post('login', 'StudentparentController@login')->name('login');
                 Route::post('logout', 'StudentparentController@logout')->name('logout');
+
             });
     });
+
+
 
 Route::prefix('student')
     ->as('student.')
@@ -85,6 +88,13 @@ Route::prefix('parent')
 
         //Download Pdf
         Route::get('payment-invoice/{id}', 'ReportController@invoicePdf')->name('payment-invoice');
+
+
+
+        Route::get('/profile', 'ProfileController@index')->name('myprofile');
+        Route::post('genup', 'ProfileController@genUpdate')->name('genupdate');
+        Route::post('passup', 'ProfileController@updatePassword')->name('passup');
+
     });
 
 Route::prefix('student')

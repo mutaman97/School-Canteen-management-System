@@ -17,7 +17,7 @@
             </div>
             <div class="col-5">
                 <h4 class="document-type display-5 text-right">{{ config('app.name') }}</h4>
-                <p class="text-right"><strong>Today Date : {{ \Carbon\Carbon::now()->format('M d Y') }}</strong></p>
+                <p class="text-right"><strong>Today Date : {{ \Carbon\Carbon::now()->format('d M Y') }}</strong></p>
             </div>
         </div>
         <div class="row">
@@ -31,12 +31,12 @@
             </div>
             <div class="col-md-6 text-md-right">
                 <address>
-                    <strong>{{ __('Payment Date:') }}</strong><br>
-                    {{ $data->balance_date }}<br>
+                    <strong>{{ __('Payment Date') }}</strong><br>
+                    {{ $data->created_at->format('d M Y') }}<br>
                 </address>
             </div>
         </div>
-        <table class="table table-bordered">
+        <table class="table table-bordered table-hover">
             <tbody>
                 <tr>
                     <th>{{ __('Title') }}</th>
@@ -61,15 +61,15 @@
                 </tr>
                 <tr>
                     <td>{{ __('Amount Charged') }}</td>
-                    <td>{{ $data->balance }}</td>
+                    <td>{{ $data->balance . __(' AED')}}</td>
                 </tr>
                 <tr>
                     <td>{{ __('Balace Before') }}</td>
-                    <td>{{ $data->balance_before }}</td>
+                    <td>{{ $data->balance_before . __(' AED')}}</td>
                 </tr>
                 <tr>
                     <td>{{ __('Balance After') }}</td>
-                    <td>{{ $data->balance_after}}</td>
+                    <td>{{ $data->balance_after . __(' AED') }}</td>
                 </tr>
 {{--                @if(!empty($data->ordermeta))--}}
 {{--                @php--}}

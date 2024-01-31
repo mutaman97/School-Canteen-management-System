@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table class="table" id="table-2">
+                        <table class="table table-hover" id="table-2">
                             <thead>
                                 <tr>
                                     <th>{{ __('SL.') }}</th>
@@ -94,7 +94,7 @@
 
                                     <td>{{ $value->balance ?? 'null' }} {{__('AED')}}</td>
 
-                                        <td>{{ $value->balance_date ?? 'null' }}</td>
+                                        <td>{{ $value->created_at->format('d M Y') ?? 'null' }}</td>
 
                                         <td>
                                             <a class="btn btn-sm btn-outline-primary" href="{{ route('parent.report.show', $value->id) }}" data-toggle="tooltip" title="{{ __('View') }}"><i class="fas fa-eye"></i> {{ __('View Details') }}</a>
