@@ -13,7 +13,7 @@
         <form method="POST" id="ajaxform" class="needs-validation" action="{{ route('parent.login') }}">
             @csrf
             <div class="form-group">
-                <label for="email">{{ __('Parent Code') }}</label>
+                <label for="email">{{ __('Student Code') }}</label>
                 <input id="parent_code" type="text" class="form-control{{ $errors->has('parent_code') ? ' is-invalid' : '' }}" name="parent_code" value="{{ old('parent_code') }}" required autofocus>
                 @if ($errors->has('parent_code'))
                     <div class="invalid-feedback" role="alert">

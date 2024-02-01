@@ -92,7 +92,7 @@ Route::prefix('parent')
 
 
         Route::get('/profile', 'ProfileController@index')->name('myprofile');
-        Route::post('genup', 'ProfileController@genUpdate')->name('genupdate');
+//        Route::post('genup', 'ProfileController@genUpdate')->name('genupdate');
         Route::post('passup', 'ProfileController@updatePassword')->name('passup');
 
     });

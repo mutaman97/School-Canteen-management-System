@@ -164,7 +164,7 @@ textarea.form-control {
   height: 64px; }
 
 .custom-control {
-  line-height: 1.6rem; 
+  line-height: 1.6rem;
 }
 label.logo_label {
     width: 100%;
@@ -939,7 +939,7 @@ select.form-control:not([size]):not([multiple]) {
     padding: 0 25px;
     height: 60px;
     vertical-align: middle;
-    
+
     }
   .table:not(.table-sm) thead th {
     border-bottom: none;
@@ -2824,7 +2824,7 @@ body.layout-3 .main-footer {
       .main-sidebar .sidebar-menu li a i {
         width: 28px;
         margin-right: 20px;
-        text-align: center; 
+        text-align: center;
         font-size: 16px;
       }
       .main-sidebar .sidebar-menu li a span {
@@ -2892,6 +2892,7 @@ body.layout-3 .main-footer {
   padding: 20px 30px 20px 280px;
   margin-top: 40px;
   color: #98a6ad;
+background-color: #7952B3;
   border-top: 1px solid #e3eaef;
   display: inline-block;
   width: 100%; }
@@ -3330,7 +3331,7 @@ label.active {
 .add-new-theme {
     border: 2px dashed #435177;
     height: 313px;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 .new-theme-info {
     margin: 97px 0;
@@ -3407,7 +3408,7 @@ a.btn-live {
   position: relative;
 }
 .category-list::-webkit-scrollbar {
-  width: .4em; 
+  width: .4em;
 }
 .category-list::-webkit-scrollbar,
 .category-list::-webkit-scrollbar-thumb {
@@ -3415,7 +3416,7 @@ a.btn-live {
   border-radius: 4px;
 }
 .category-list::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,.2); 
+  background: rgba(0,0,0,.2);
 }
 
 .none{
@@ -3429,7 +3430,7 @@ a.btn-live {
 }
 /* MAGIC HAPPENS HERE */
 .sidebar::-webkit-scrollbar {
-  width: .4em; 
+  width: .4em;
 }
 .sidebar::-webkit-scrollbar,
 .sidebar::-webkit-scrollbar-thumb {
@@ -3437,11 +3438,11 @@ a.btn-live {
   border-radius: 4px;
 }
 .sidebar::-webkit-scrollbar-thumb {
-  background: #dddbe4; 
+  background: #dddbe4;
 }
 
 .media-list::-webkit-scrollbar {
-  width: .4em; 
+  width: .4em;
 }
 .media-list::-webkit-scrollbar,
 .media-list::-webkit-scrollbar-thumb {
@@ -3449,12 +3450,12 @@ a.btn-live {
   border-radius: 4px;
 }
 .media-list::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,.2); 
+  background: rgba(0,0,0,.2);
 }
 .cover-bar {
   position: absolute;
   background: #fff;;
-  height: 100%;  
+  height: 100%;
   top: 0;
   right: 0;
   width: .4em;
@@ -3845,13 +3846,13 @@ tfoot tr th {
   box-sizing: border-box;
   width: 100%;
   height: 40px;
-  
+
   padding: 10px 12px;
-  
+
   border: 1px solid transparent;
   border-radius: 4px;
   background-color: white;
-  
+
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
@@ -3886,7 +3887,7 @@ tfoot tr th {
     align-items: end;
     display: flex;
     justify-content: flex-end;
-} 
+}
 
 .right .ticket-sender-picture{
 /* width: 70px !important; */
@@ -4187,7 +4188,7 @@ margin-right: 0 !important;
 }
 
 .add-new-customer-btn a:hover {
-  
+
   background: #614092;
   color: #fff;
   margin-left: 15px;
@@ -4379,7 +4380,7 @@ th.payable-right {
   height: 150px;
   object-fit: contain;
   border-radius: 10px;
-  
+
 }
 
 .single-table {
@@ -4412,8 +4413,8 @@ figure.imagecheck-figure img {
   margin-right: 5px;
 }
 
-.product-input input::-webkit-inner-spin-button, 
-.product-input input::-webkit-outer-spin-button {  
+.product-input input::-webkit-inner-spin-button,
+.product-input input::-webkit-outer-spin-button {
 
    opacity: 1;
 
@@ -4756,10 +4757,10 @@ ul#success {
 }
 
 .tags-dropdown {
-  position: absolute; 
-  will-change: transform; 
-  top: 0px; 
-  left: 0px; 
+  position: absolute;
+  will-change: transform;
+  top: 0px;
+  left: 0px;
   transform: translate3d(1071px, 202px, 0px);
 }
 

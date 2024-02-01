@@ -18,18 +18,18 @@
                     @endif
                     <div class="row">
                         <div class="col-6">
-                            <form action="{{ url('/partner/report') }}" type="get">
+                            <form action="{{ route('parent.report.index') }}" type="get">
                                 <div class="form-row">
                                     <div class="col-lg-5">
                                         <div class="form-group">
                                             <label>{{ __('Start Date') }}</label>
-                                            <input type="date" class="form-control" name="start_date" required="">
+                                            <input type="date" class="form-control" name="start_date">
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
                                         <div class="form-group">
                                             <label>{{ __('End Date') }}</label>
-                                            <input type="date" class="form-control" name="end_date" required="">
+                                            <input type="date" class="form-control" name="end_date">
                                         </div>
                                         </div>
                                     <div class="col-lg-2 mt-2">
@@ -39,15 +39,15 @@
                             </form>
                         </div>
                         <div class="col-6 mt-2">
-                            <form action="{{ url('/partner/report') }}" type="get">
+                            <form action="{{ route('parent.report.index') }}" type="get">
                                 <div class="input-group form-row mt-3">
                                     <input type="text" class="form-control" placeholder="{{__('Search ...')}}" required=""
                                         name="value" autocomplete="off" value="">
                                     <select class="form-control" name="type">
-                                        <option value="price">{{ __('price') }}</option>
-                                        <option value="getway_name">{{ __('gateway name') }}</option>
-                                        <option value="trx">{{ __('trx id') }}</option>
-                                        <option value="plan">{{ __('plan') }}</option>
+                                        <option value="amount">{{ __('Amount') }}</option>
+{{--                                        <option value="student_name">{{ __('Student Name') }}</option>--}}
+                                        <option value="card_no">{{ __('Card Number') }}</option>
+{{--                                        <option value="plan">{{ __('plan') }}</option>--}}
                                     </select>
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i>

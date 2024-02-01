@@ -79,7 +79,7 @@
                 <h4 class="congratulation-contents-title"> Student Balance Recharged Sucessfuly! </h4>
 {{--                <p class="congratulation-contents-para"> transaction completed successfuly</p>--}}
                 <div class="btn-wrapper mt-4">
-                    <a href="/parent" class="cmn-btn btn-bg-1"> Go to Home </a>
+                    <a href="{{ route('parent.student.payment') }}" class="cmn-btn btn-bg-1"> Go to Home </a>
                 </div>
             </div>
         </div>

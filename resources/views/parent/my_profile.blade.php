@@ -127,23 +127,24 @@
         </div>
         <div class="col-12 col-md-12 col-lg-7">
             <div class="card shadow">
-                <form method="post" id="ajaxform"  action="{{ route('parent.genupdate') }}">
+{{--                <form method="post" id="ajaxform"  action="{{ route('parent.genupdate') }}">--}}
+                <form method="post" id="ajaxform"  action="">
                     @csrf
                     <div class="card-header">
-                        <h4>{{ __('Edit Your Profile') }}</h4>
+                        <h4>{{ __('Profile Information') }}</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6 col-12">
                                 <label>{{ __('Name') }}</label>
-                                <input type="text" name="name" id="name" class="form-control" value="{{ $info->student_parent }}" required="">
+                                <input type="text" name="name" id="name" class="form-control" value="{{ $info->student_parent }}" required="" disabled>
                                 <div class="invalid-feedback">
                                     Please fill in the first name
                                 </div>
                             </div>
                             <div class="form-group col-md-6 col-12">
                                 <label>{{ __('Email') }}</label>
-                                <input type="text" name="email" id="email" class="form-control" placeholder="Enter Your Email"  value="{{ $info->email }}" required="">
+                                <input type="text" name="email" id="email" class="form-control" placeholder="Enter Your Email"  value="{{ $info->email }}" required="" disabled>
                                 <div class="invalid-feedback">
                                     Please fill in the last name
                                 </div>
@@ -159,11 +160,11 @@
 {{--                            </div>--}}
                             <div class="form-group col-md-7 col-12">
                                 <label>{{ __('Phone Number') }}</label>
-                                <input type="tel" name="mobile" class="form-control" required placeholder="0123456789" value="{{ $info->mobile ?? '' }}">
+                                <input type="tel" name="mobile" class="form-control" required placeholder="0123456789" value="{{ $info->mobile ?? '' }}" disabled>
                             </div>
                             <div class="form-group col-md-5 col-12">
                                 <label>{{ __('Whatsapp Number') }}</label>
-                                <input type="tel" name="whatsapp" class="form-control" required placeholder="0123456789" value="{{ $info->whatsapp ?? '' }}">
+                                <input type="tel" name="whatsapp" class="form-control" required placeholder="0123456789" value="{{ $info->whatsapp ?? '' }}" disabled>
                             </div>
                         </div>
                         {{-- <div class="row">
@@ -184,9 +185,9 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
                     </div>
-                    <div class="card-footer text-right">
-                        <button type="submit" class="btn btn-primary basicbtn">{{ __('Update') }}</button>
-                    </div>
+{{--                    <div class="card-footer text-right">--}}
+{{--                        <button type="submit" class="btn btn-primary basicbtn">{{ __('Update') }}</button>--}}
+{{--                    </div>--}}
                 </form>
                 <div class="form-divider hr"></div>
             </div>

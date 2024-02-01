@@ -25,6 +25,7 @@ class ReportController extends Controller
     public function index(Request $request)
     {
         $parent_code = Auth::guard('studentparent')->user()->parent_code;
+//        dd($parent_code);
 
         $data = Order::where('parent_code', $parent_code);
 
@@ -33,38 +34,41 @@ class ReportController extends Controller
             $start_date = $request->start_date . " 00:00:00";
             $end_date = $request->end_date . " 23:59:59";
             if ($request->start_date == '' && $request->end_date == '') {
-                $data = $data->paginate(10);
+                $data = $data->latest();
             } elseif ($request->start_date == '' && $request->end_date != '') {
-                $data = $data->where('created_at', '<', $request->end_date)->paginate(10);
+                $data = $data->where('created_at', '<', $request->end_date)->latest();
             } elseif ($request->start_date != '' && $request->end_date == '') {
-                $data = $data->where('created_at', '>', $request->start_date)->paginate(10);
+                $data = $data->where('created_at', '>', $request->start_date)->latest();
             } else {
-                $data = $data->whereBetween('created_at', [$start_date, $end_date])->paginate(10);
+                $data = $data->whereBetween('created_at', [$start_date, $end_date])->latest();
             }
 
-        } elseif ($request->type == 'getway_name') {
+        }
+//        elseif ($request->type == 'student_name') {
+//            $q = $request->value;
+//            $data = $data->where('student_name', 'LIKE', "%$q%")->latest();
+//
+//        }
+        elseif ($request->type == 'card_no') {
             $q = $request->value;
-            $data = $data->whereHas('getway', function ($query) use ($q) {
-                return $query->where('name', 'LIKE', "%$q%");
-            })->paginate(10);
+            $data = $data->where('card_no', 'LIKE', "%$q%")->latest();
 
-        } elseif ($request->type == 'trx') {
+        }
+//        elseif ($request->type == 'plan') {
+//            $q = $request->value;
+//            $data = $data->whereHas('plan', function ($query) use ($q) {
+//                return $query->where('name', 'LIKE', "%$q%");
+//            })->latest();
+//
+//        }
+        elseif ($request->type == 'amount') {
             $q = $request->value;
-            $data = $data->where('trx', 'LIKE', "%$q%")->paginate(10);
-
-        }elseif ($request->type == 'plan') {
-            $q = $request->value;
-            $data = $data->whereHas('plan', function ($query) use ($q) {
-                return $query->where('name', 'LIKE', "%$q%");
-            })->paginate(10);
-
-        } elseif ($request->type == 'price') {
-            $q = $request->value;
-            $data = $data->where('price', 'LIKE', "%$q%")->paginate(10);
+            $data = $data->where('balance', 'LIKE', "%$q%")->latest();
 
         }
 
-        $data = $data->paginate(150);
+        $data = $data->paginate(15);
+
         return view('parent.report.index', compact('data'));
     }
 

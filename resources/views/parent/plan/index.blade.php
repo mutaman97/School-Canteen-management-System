@@ -20,13 +20,13 @@
             <div class="pricing pricing-highlight shadow-lg">
                 <div class="pricing-padding">
                     <div class="user-item">
-                        <img alt="image" src="{{ __('https://ui-avatars.com/api/') . $student->student_name }}" class="img-fluid" width="250" height="250">
+                        <img alt="image" src="{{ __('https://ui-avatars.com/api/') . $student->student_name }}" class="img-fluid" width="200" height="200">
                         <div class="user-details">
                             <div class="h4 ">{{ $student->student_name }}</div>
 
                         </div>
                     </div>
-                    <div class="py-4">
+                    <div class="py-2">
                         <div class="h6 text-center">{{__('Balance')}}</div>
                         <div class="h3 text-primary">{{ $student->balance }}&nbsp;{{ __('AED') }}</div>
                     </div>
