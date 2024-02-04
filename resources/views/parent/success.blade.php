@@ -68,6 +68,7 @@
 </head>
 
 <body>
+
 <!-- Congratulations area start -->
 <div class="congratulation-area text-center mt-5">
     <div class="container">
@@ -76,7 +77,7 @@
                 <div class="congratulation-contents-icon">
                     <i class="fas fa-check"></i>
                 </div>
-                <h4 class="congratulation-contents-title"> Student Balance Recharged Sucessfuly! </h4>
+                <h4 class="congratulation-contents-title"> Balance Recharged Sucessfuly! </h4>
 {{--                <p class="congratulation-contents-para"> transaction completed successfuly</p>--}}
                 <div class="btn-wrapper mt-4">
                     <a href="{{ route('parent.student.payment') }}" class="cmn-btn btn-bg-1"> Go to Home </a>

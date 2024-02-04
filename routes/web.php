@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+//EMPLOYEE AUTHENTICATION SECTION
+
 Route::prefix('employee')
     ->as('employee.')
     ->group(function() {
@@ -31,6 +33,23 @@ Route::prefix('employee')
 				Route::post('logout', 'EmployeeController@logout')->name('logout');
     		});
 	});
+
+//TEACHER AUTHENTICATION SECTION
+
+Route::prefix('teacher')
+    ->as('teacher.')
+    ->group(function() {
+        Route::get('home', 'Home\EmployeeHomeController@index')->name('home');
+
+        Route::namespace('Auth\Login')
+            ->group(function() {
+                Route::get('login', 'TeacherController@showLoginForm')->name('login');
+                Route::post('login', 'TeacherController@login')->name('login');
+                Route::post('logout', 'TeacherController@logout')->name('logout');
+            });
+    });
+
+//PARENT AUTHENTICATION SECTION
 
 Route::prefix('parent')
     ->as('parent.')
@@ -46,7 +65,7 @@ Route::prefix('parent')
             });
     });
 
-
+//STUDENT AUTHENTICATION SECTION
 
 Route::prefix('student')
     ->as('student.')
@@ -60,6 +79,8 @@ Route::prefix('student')
                 Route::post('logout', 'StudentController@logout')->name('logout');
             });
     });
+
+// PARENT SECTION
 
 Route::prefix('parent')
     ->as('parent.')->namespace('Parent')
@@ -97,6 +118,34 @@ Route::prefix('parent')
 
     });
 
+// Teacher Section
+
+Route::prefix('teacher')
+    ->as('teacher.')->namespace('Teacher')
+    ->group(function() {
+
+        // Deposit
+        Route::get('deposit/{student}','PlanController@depo')->name('depo');
+
+        // Select Student
+        Route::get('/','PlanController@student')->name('payment');
+
+        //Report Route
+        Route::resource('report', 'ReportController');
+
+        //Download Pdf
+        Route::get('payment-invoice/{id}', 'ReportController@invoicePdf')->name('payment-invoice');
+
+
+
+        Route::get('/profile', 'ProfileController@index')->name('myprofile');
+//        Route::post('genup', 'ProfileController@genUpdate')->name('genupdate');
+        Route::post('passup', 'ProfileController@updatePassword')->name('passup');
+
+    });
+
+// STUDENT SECTION
+
 Route::prefix('student')
     ->as('merchant.')->namespace('Merchant')->group( function ()
 {
@@ -112,6 +161,8 @@ Route::prefix('student')
     //Report Route
     Route::resource('report', 'ReportController');
 });
+
+// STRIPE SECTION
 
 Route::post('/checkout', 'StripeController@checkout')->name('checkout');
 Route::get('/success', 'StripeController@success')->name('checkout.success');

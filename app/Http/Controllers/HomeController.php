@@ -13,10 +13,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth:studentparent');
-    }
 
     /**
      * Show the application dashboard.
@@ -25,8 +21,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect()->route('parent.student.payment');
+//        return redirect()->route('parent.student.payment');
 
-//        return Route::redirect('parent.student.payment');
+        return view('home');
+
     }
 }

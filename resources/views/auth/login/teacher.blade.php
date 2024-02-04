@@ -1,7 +1,7 @@
 @extends('auth.main')
 @section('content')
     <div class="card-header">
-        <h4>{{ __('Login') }}</h4>
+        <h4>{{ __('Teacher Login') }}</h4>
     </div>
     <div class="card-body">
 
@@ -10,10 +10,10 @@
                 {{ Session::get('error') }}
             </div>
         @endif
-        <form method="POST" id="ajaxform" class="needs-validation" action="{{ route('parent.login') }}">
+        <form method="POST" id="ajaxform" class="needs-validation" action="{{ route('teacher.login') }}">
             @csrf
             <div class="form-group">
-                <label for="email">{{ __('Student Code') }}</label>
+                <label for="parent_code">{{ __('Teacher Email') }}</label>
                 <input id="parent_code" type="text" class="form-control{{ $errors->has('parent_code') ? ' is-invalid' : '' }}" name="parent_code" value="{{ old('parent_code') }}" required autofocus>
                 @if ($errors->has('parent_code'))
                     <div class="invalid-feedback" role="alert">
@@ -45,7 +45,7 @@
             </div>
         </form>
         <div class="simple-footer">
-            {{ __('Copyright') }} &copy; {{ Config::get('app.name') }} {{ date('Y') }}
+            <a href="https://aldana-computers.com/eng" class="font-weight-bold" target="_blank" rel="noopener noreferrer">{{ __('Aldana Computers') }}</a>&copy; <div class="bullet"></div>{{__('1997')}} - {{ date('Y') }}
         </div>
     </div>
 @endsection

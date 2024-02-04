@@ -54,6 +54,12 @@ return [
             'provider' => 'studentparent',
         ],
 
+        'teacher' => [
+            'redirectTo' => 'teacher.payment',
+            'driver' => 'session',
+            'provider' => 'teacher',
+        ],
+
         'employee' => [
             'redirectTo' => 'employee.home',
             'driver' => 'session',
@@ -109,6 +115,11 @@ return [
         'studentparent' => [
             'driver' => 'eloquent',
             'model' => App\Models\Studentparent::class,
+        ],
+
+        'teacher' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Teacher::class,
         ],
 
         'employee' => [
