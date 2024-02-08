@@ -132,9 +132,9 @@
                         <td>Parent Details<br></td>
 
                         <td>
-                            {{Auth::guard('teacher')->user()->student_parent}}<br>
-                            {{Auth::guard('teacher')->user()->email}}<br>
-                            {{Auth::guard('teacher')->user()->mobile ?? null}}
+                            {{Auth::guard('user')->user()->student_parent}}<br>
+                            {{Auth::guard('user')->user()->email}}<br>
+                            {{Auth::guard('user')->user()->mobile ?? null}}
                         </td>
                     </tr>
                 </table>
@@ -154,7 +154,7 @@
 {{--            <td>{{$data->plan->name ?? 'null'}}</td>--}}
 {{--        </tr>--}}
         <tr class="item">
-            <td>{{ __('Teacher Name') }}</td>
+            <td>{{ __('User Name') }}</td>
             <td>{{ $student->student_name }}</td>
         </tr>
         <tr class="item">

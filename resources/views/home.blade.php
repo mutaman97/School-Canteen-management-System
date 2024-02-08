@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>{{ __('School Canteen System') }} | {{ Request::segment(2) }}</title>
+    <title>{{ __('School Canteen System') }} | {{ __('Home') }}</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap.min.css') }}">
@@ -63,10 +63,10 @@
 {{--                                </div>--}}
                                 <h2>{{ __('Login to your account!') }}</h2>
                                 <p class="lead">
-                                    {{ __('Here you can login to your account, as a teacher or as a parent') }}
+                                    {{ __('Here you can login to your account, as a user or as a parent') }}
                                 </p>
                                 <div class="d-flex justify-content-end">
-                                    <a href="{{ route('teacher.login') }}" class="btn btn-lg btn-outline-primary m-4">{{ __('Teacher Login') }}</a>
+                                    <a href="{{ route('user.login') }}" class="btn btn-lg btn-outline-primary m-4">{{ __('User Login') }}</a>
                                     <a href="{{ route('parent.login') }}" class="btn btn-lg btn-primary m-4">{{ __('Parent Login') }}</a>
                                 </div>
 

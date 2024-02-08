@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Teacher;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
@@ -19,12 +19,12 @@ class ReportController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:teacher');
+        $this->middleware('auth:user');
     }
 
     public function index(Request $request)
     {
-        $parent_code = Auth::guard('teacher')->user()->parent_code;
+        $parent_code = Auth::guard('user')->user()->parent_code;
 //        dd($parent_code);
 
         $data = Order::where('parent_code', $parent_code);
@@ -69,7 +69,7 @@ class ReportController extends Controller
 
         $data = $data->paginate(15);
 
-        return view('teacher.report.index', compact('data'));
+        return view('user.report.index', compact('data'));
     }
 
 
@@ -84,7 +84,7 @@ class ReportController extends Controller
     {
 //        $data = Order::with('getway', 'user','plan','ordermeta')->where('user_id',Auth::id())->findOrFail($id);
 
-        $parent_code = Auth::guard('teacher')->user()->parent_code;
+        $parent_code = Auth::guard('user')->user()->parent_code;
 
         $data = Order::where('parent_code',$parent_code)->findOrFail($id);
 
@@ -93,13 +93,13 @@ class ReportController extends Controller
 //        dd($student->id);
 
 
-        return view('teacher.report.show', compact('data', 'student'));
+        return view('user.report.show', compact('data', 'student'));
     }
 
 
     public function invoicePdf($id)
     {
-        $parent_code = Auth::guard('teacher')->user()->parent_code;
+        $parent_code = Auth::guard('user')->user()->parent_code;
 
 //        dd($parent_code);
 
@@ -111,7 +111,7 @@ class ReportController extends Controller
 //        dd($student);
 
 
-        $pdf = PDF::loadView('teacher.plan.invoice-pdf', compact('data', 'student'));
+        $pdf = PDF::loadView('user.plan.invoice-pdf', compact('data', 'student'));
         return $pdf->download('payment-invoice.pdf');
     }
 

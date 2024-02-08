@@ -154,7 +154,7 @@
 {{--            <td>{{$data->plan->name ?? 'null'}}</td>--}}
 {{--        </tr>--}}
         <tr class="item">
-            <td>Student Name</td>
+            <td>Name</td>
             <td>{{ $student->student_name }}</td>
         </tr>
         <tr class="item">

@@ -25,18 +25,18 @@
       <li class="dropdown">
           <a href="{{ gravatar('test@email.com') }}" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
               <img alt="image" src="{{ gravatar('test@email.com') }}" class="rounded-circle profile-widget-picture ">
-              <div class="d-sm-none d-lg-inline-block">{{ Auth::guard('teacher')->user()->student_parent ?? ''}}</div>
+              <div class="d-sm-none d-lg-inline-block">{{ Auth::guard('user')->user()->student_parent ?? ''}}</div>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
-          <a href="{{ route('teacher.myprofile') }}" class="dropdown-item has-icon">
+          <a href="{{ route('user.myprofile') }}" class="dropdown-item has-icon">
                   <i class="far fa-user"></i> {{ __('Profile') }}
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{{ route('teacher.logout') }}" onclick="event.preventDefault();
+          <a href="{{ route('user.logout') }}" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();" class="dropdown-item has-icon text-danger">
               <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
           </a>
-          <form id="logout-form" action="{{ route('teacher.logout') }}" method="POST" class="d-none">
+          <form id="logout-form" action="{{ route('user.logout') }}" method="POST" class="d-none">
               @csrf
           </form>
           </div>

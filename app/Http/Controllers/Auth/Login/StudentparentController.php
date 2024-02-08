@@ -49,9 +49,9 @@ class StudentparentController extends DefaultLoginController
     {
         // Customize your login logic here
         $credentials = $this->credentials($request);
-        $credentials['user_type'] = 1; // Add any additional conditions you need
+//        $credentials['user_type'] = 1; // Add any additional conditions you need
 
-        return $this->guard('teacher')->attempt(
+        return $this->guard('user')->attempt(
             $credentials,
             $request->filled('remember')
         );

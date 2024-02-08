@@ -1,9 +1,9 @@
 @extends('layouts.backend.parentapp')
 
-@section('title',__('Recharge Student Card'))
+@section('title',__('Recharge Card'))
 
 @section('head')
-    @include('layouts.backend.partials.headersection',['title'=>__('Recharge Student Card')])
+    @include('layouts.backend.partials.headersection',['title'=>__('Recharge Card')])
 @endsection
 
 @section('content')
@@ -41,7 +41,7 @@
             </div>
         </div>
     @empty
-            <p>No Students Found</p>
+            <p>{{ __('No Data Found') }}</p>
     @endforelse
 
 </div>

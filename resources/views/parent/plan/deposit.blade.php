@@ -3,7 +3,7 @@
 @section('title',__('Recharge Student Card'))
 
 @section('head')
-    @include('layouts.backend.partials.headersection',['title'=>__('Recharge Student Card')])
+    @include('layouts.backend.partials.headersection',['title'=>__('Recharge Card')])
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>{{ __('Add Money To Student Card') }}</h4>
+                    <h4>{{ __('Add Money To Card') }}</h4>
                 </div>
 {{--                @if (Session::has('message'))--}}
 {{--                    <div class="alert alert-{{ Session::get('type') ?? '' }}">--}}

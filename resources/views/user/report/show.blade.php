@@ -3,7 +3,7 @@
 @section('title', __('Payment Report'))
 
 @section('head')
-@include('layouts.backend.partials.headersection',['title'=>__('Teacher Payment Report')])
+@include('layouts.backend.partials.headersection',['title'=>__('User Payment Report')])
 @endsection
 @push('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/reportshow.css') }}">
@@ -56,7 +56,7 @@
 {{--                </tr>--}}
 
                 <tr>
-                    <td>{{ __('Teacher Name') }}</td>
+                    <td>{{ __('User Name') }}</td>
                     <td>{{ $student->student_name }}</td>
                 </tr>
                 <tr>
@@ -102,7 +102,7 @@
         </table>
     </div>
 
-    <a href="{{ route('teacher.payment-invoice', $data->id) }}">
+    <a href="{{ route('user.payment-invoice', $data->id) }}">
         <button class="btn btn-primary btn-icon icon-left"><i class="fas fa-download"></i>
             {{ __('Download') }}
         </button>

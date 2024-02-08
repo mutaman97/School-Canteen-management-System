@@ -10,7 +10,7 @@
 
 
 <div class="section-body">
-    <h2 class="section-title">{{ __('Hi') }}, {{ Auth::guard('teacher')->user()->student_parent ?? ''}}</h2>
+    <h2 class="section-title">{{ __('Hi') }}, {{ Auth::guard('user')->user()->student_parent ?? ''}}</h2>
     <p class="section-lead">
         {{__('Change information about yourself on this page')}}
     </p>
@@ -18,7 +18,7 @@
         <div class="col-12 col-md-12 col-lg-5">
             <div class="card profile-widget shadow">
                 <div class="profile-widget-header">
-                    <img alt="image" src="{{ gravatar(Auth::guard('teacher')->user()->email) }}" class="rounded-circle profile-widget-picture">
+                    <img alt="image" src="{{ gravatar(Auth::guard('user')->user()->email) }}" class="rounded-circle profile-widget-picture">
 
 
 
@@ -89,7 +89,7 @@
                         <i class="fab fa-instagram"></i>
                     </a>
                 </div> --}}
-                <form method="post" class="ajaxform_with_reset" action="{{ route('teacher.passup') }}">
+                <form method="post" class="ajaxform_with_reset" action="{{ route('user.passup') }}">
                     @csrf
                     <div class="card-header">
                         <h4>{{ __('Change Password') }}</h4>
@@ -127,7 +127,7 @@
         </div>
         <div class="col-12 col-md-12 col-lg-7">
             <div class="card shadow">
-{{--                <form method="post" id="ajaxform"  action="{{ route('teacher.genupdate') }}">--}}
+{{--                <form method="post" id="ajaxform"  action="{{ route('user.genupdate') }}">--}}
                 <form method="post" id="ajaxform"  action="">
                     @csrf
                     <div class="card-header">

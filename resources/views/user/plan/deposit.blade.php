@@ -1,9 +1,9 @@
 @extends('layouts.backend.teacherapp')
 
-@section('title',__('Recharge Teacher Card'))
+@section('title',__('Recharge User Card'))
 
 @section('head')
-    @include('layouts.backend.partials.headersection',['title'=>__('Recharge Teacher Card')])
+    @include('layouts.backend.partials.headersection',['title'=>__('Recharge User Card')])
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>{{ __('Add Money To Teacher Card') }}</h4>
+                    <h4>{{ __('Add Money To User Card') }}</h4>
                 </div>
 {{--                @if (Session::has('message'))--}}
 {{--                    <div class="alert alert-{{ Session::get('type') ?? '' }}">--}}

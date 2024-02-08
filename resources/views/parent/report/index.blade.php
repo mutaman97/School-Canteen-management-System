@@ -1,9 +1,9 @@
 @extends('layouts.backend.parentapp')
 
-@section('title', __('Parent Payments Report'))
+@section('title', __('Payments Report'))
 
 @section('head')
-    @include('layouts.backend.partials.headersection', ['title'=>__('Parent Payments Report')])
+    @include('layouts.backend.partials.headersection', ['title'=>__('Payments Report')])
 @endsection
 
 @section('content')
@@ -69,7 +69,7 @@
                             <thead>
                                 <tr>
                                     <th>{{ __('SL.') }}</th>
-                                    <th>{{ __('Student Name') }}</th>
+                                    <th>{{ __('Name') }}</th>
                                     <th>{{ __('Card Number') }}</th>
                                     <th>{{ __('Charge Amount') }}</th>
 

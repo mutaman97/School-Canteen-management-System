@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Teacher;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\SendEmailJob;
@@ -36,7 +36,7 @@ class PlanController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:teacher');
+        $this->middleware('auth:user');
     }
 
 
@@ -51,17 +51,17 @@ class PlanController extends Controller
     {
 
 
-        return view('teacher.plan.deposit', compact('student'));
+        return view('user.plan.deposit', compact('student'));
     }
 
     public function student()
     {
-        $parent_code = Auth::guard('teacher')->user()->parent_code ?? null;
+        $parent_code = Auth::guard('user')->user()->parent_code ?? null;
 
 
         $students = Student::where('parent_code', $parent_code)->get();
 
-        return view('teacher.plan.index',compact('students'));
+        return view('user.plan.index',compact('students'));
 
 
     }

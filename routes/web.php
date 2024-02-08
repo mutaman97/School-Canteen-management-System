@@ -34,18 +34,18 @@ Route::prefix('employee')
     		});
 	});
 
-//TEACHER AUTHENTICATION SECTION
+//User AUTHENTICATION SECTION
 
-Route::prefix('teacher')
-    ->as('teacher.')
+Route::prefix('user')
+    ->as('user.')
     ->group(function() {
         Route::get('home', 'Home\EmployeeHomeController@index')->name('home');
 
         Route::namespace('Auth\Login')
             ->group(function() {
-                Route::get('login', 'TeacherController@showLoginForm')->name('login');
-                Route::post('login', 'TeacherController@login')->name('login');
-                Route::post('logout', 'TeacherController@logout')->name('logout');
+                Route::get('login', 'UserController@showLoginForm')->name('login');
+                Route::post('login', 'UserController@login')->name('login');
+                Route::post('logout', 'UserController@logout')->name('logout');
             });
     });
 
@@ -118,10 +118,10 @@ Route::prefix('parent')
 
     });
 
-// Teacher Section
+// User Section
 
-Route::prefix('teacher')
-    ->as('teacher.')->namespace('Teacher')
+Route::prefix('user')
+    ->as('user.')->namespace('user')
     ->group(function() {
 
         // Deposit

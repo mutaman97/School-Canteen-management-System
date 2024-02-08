@@ -6,12 +6,12 @@
 {{--    </a>--}}
 {{--</li>--}}
 
-<li class="menu-header">{{ __('Students') }}</li>
+<li class="menu-header">{{ __('Cards') }}</li>
 
 <li class="{{ Request::is('parent/fund/history/list') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('parent.student.payment') }}">
-        <i class="fas fa-user-graduate"></i>
-        <span>{{ __('Students') }}</span>
+        <i class="fas fa-credit-card"></i>
+        <span>{{ __('Cards') }}</span>
     </a>
 </li>
 
@@ -29,5 +29,18 @@
     <a class="nav-link" href="{{ route('parent.report.index') }}">
         <i class="fas fa-chart-bar"></i>
         <span>{{ __('Payment Report') }}</span>
+    </a>
+</li>
+<li class="menu-header">{{ __('Profile') }}</li>
+<li class="{{ Request::is('/parent/profile') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('parent.myprofile') }}">
+        <i class="fas fa-user"></i>
+        <span>{{ __('Change Password') }}</span>
+    </a>
+</li>
+<li class="">
+    <a class="nav-link" href="{{ route('parent.logout') }}">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>{{ __('Logout') }}</span>
     </a>
 </li>

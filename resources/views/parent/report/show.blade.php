@@ -3,7 +3,7 @@
 @section('title', __('Payment Report'))
 
 @section('head')
-@include('layouts.backend.partials.headersection',['title'=>__('Parent Payment Report')])
+@include('layouts.backend.partials.headersection',['title'=>__('Payment Report')])
 @endsection
 @push('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/reportshow.css') }}">
@@ -56,7 +56,7 @@
 {{--                </tr>--}}
 
                 <tr>
-                    <td>{{ __('Student Name') }}</td>
+                    <td>{{ __('Name') }}</td>
                     <td>{{ $student->student_name }}</td>
                 </tr>
                 <tr>

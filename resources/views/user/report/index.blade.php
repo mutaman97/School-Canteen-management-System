@@ -1,9 +1,9 @@
 @extends('layouts.backend.teacherapp')
 
-@section('title', __('Teacher Payments Report'))
+@section('title', __('User Payments Report'))
 
 @section('head')
-    @include('layouts.backend.partials.headersection', ['title'=>__('Teacher Payments Report')])
+    @include('layouts.backend.partials.headersection', ['title'=>__('User Payments Report')])
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@
                     @endif
                     <div class="row">
                         <div class="col-6">
-                            <form action="{{ route('teacher.report.index') }}" type="get">
+                            <form action="{{ route('user.report.index') }}" type="get">
                                 <div class="form-row">
                                     <div class="col-lg-5">
                                         <div class="form-group">
@@ -39,7 +39,7 @@
                             </form>
                         </div>
                         <div class="col-6 mt-2">
-                            <form action="{{ route('teacher.report.index') }}" type="get">
+                            <form action="{{ route('user.report.index') }}" type="get">
                                 <div class="input-group form-row mt-3">
                                     <input type="text" class="form-control" placeholder="{{__('Search ...')}}" required=""
                                         name="value" autocomplete="off" value="">
@@ -69,7 +69,7 @@
                             <thead>
                                 <tr>
                                     <th>{{ __('SL.') }}</th>
-                                    <th>{{ __('Teacher Name') }}</th>
+                                    <th>{{ __('User Name') }}</th>
                                     <th>{{ __('Card Number') }}</th>
                                     <th>{{ __('Charge Amount') }}</th>
 
@@ -97,7 +97,7 @@
                                         <td>{{ $value->created_at->format('d M Y') ?? 'null' }}</td>
 
                                         <td>
-                                            <a class="btn btn-sm btn-outline-primary" href="{{ route('teacher.report.show', $value->id) }}" data-toggle="tooltip" title="{{ __('View') }}"><i class="fas fa-eye"></i> {{ __('View Details') }}</a>
+                                            <a class="btn btn-sm btn-outline-primary" href="{{ route('user.report.show', $value->id) }}" data-toggle="tooltip" title="{{ __('View') }}"><i class="fas fa-eye"></i> {{ __('View Details') }}</a>
                                         </td>
                                     </tr>
                                 @empty

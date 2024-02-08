@@ -1,9 +1,9 @@
 @extends('layouts.backend.teacherapp')
 
-@section('title',__('Recharge Teacher Card'))
+@section('title',__('Recharge User Card'))
 
 @section('head')
-    @include('layouts.backend.partials.headersection',['title'=>__('Recharge Teacher Card')])
+    @include('layouts.backend.partials.headersection',['title'=>__('Recharge User Card')])
 @endsection
 
 @section('content')
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="pricing-cta">
-                    <a href="{{ route('teacher.depo', ['student' => $student->id]) }}">{{ __('Recharge') }}<i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ route('user.depo', ['student' => $student->id]) }}">{{ __('Recharge') }}<i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

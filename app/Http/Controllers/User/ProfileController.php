@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Teacher;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Student;
@@ -14,12 +14,12 @@ class ProfileController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:teacher');
+        $this->middleware('auth:user');
     }
 
     public function index()
     {
-        $info=Student::find(Auth::guard('teacher')->id());
+        $info=Student::find(Auth::guard('user')->id());
         $storesCount = 5;
         $fund=500;
 
@@ -31,7 +31,7 @@ class ProfileController extends Controller
 //            $totalEarnings=Order::where('payment_status',1)->where('status_id',1)->whereYear('created_at', '=',$year)->sum('total');
 //            $totalEarnings=amount_format($totalEarnings);
 //        }
-        return view('teacher.my_profile',compact('info','storesCount','fund','totalEarnings'));
+        return view('user.my_profile',compact('info','storesCount','fund','totalEarnings'));
     }
 
     public function genUpdate(Request $request)
@@ -47,7 +47,7 @@ class ProfileController extends Controller
         ]);
 
 
-        $user=Student::find(Auth::guard('teacher')->id());
+        $user=Student::find(Auth::guard('user')->id());
 
         $user->student_parent=$request->name;
         $user->email=$request->email;
@@ -70,12 +70,12 @@ class ProfileController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
 
         ]);
-        $info=Student::where('id', Auth::guard('teacher')->id())->first();
+        $info=Student::where('id', Auth::guard('user')->id())->first();
 
-        $check=Hash::check($request->oldpassword, Auth::guard('teacher')->user()->password);
+        $check=Hash::check($request->oldpassword, Auth::guard('user')->user()->password);
 
         if ($check==true) {
-            Student::where('id', Auth::guard('teacher')->id())->update(['password'=>Hash::make($request->password)]);
+            Student::where('id', Auth::guard('user')->id())->update(['password'=>Hash::make($request->password)]);
 
             return response()->json(['Password Changed Successfully']);
 

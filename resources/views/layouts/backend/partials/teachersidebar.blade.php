@@ -10,7 +10,7 @@
         </div>
         <ul class="sidebar-menu">
 
-              @include('teacher.teachermenu')
+            @include('user.usermenu')
 
         </ul>
     </aside>

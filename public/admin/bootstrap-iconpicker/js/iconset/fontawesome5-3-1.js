@@ -217,7 +217,7 @@ $.iconset_fontawesome_5 = {
           'fab fa-centercode',
           'fas fa-certificate',
           'fas fa-chalkboard',
-          'fas fa-chalkboard-teacher',
+          'fas fa-chalkboard-user',
           'fas fa-charging-station',
           'fas fa-chart-area',
           'fas fa-chart-bar',

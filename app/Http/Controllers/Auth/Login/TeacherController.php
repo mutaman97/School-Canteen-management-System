@@ -18,7 +18,7 @@ class TeacherController extends DefaultLoginController
      *
      * @var string
      */
-    protected $redirectTo = '/teacher';
+    protected $redirectTo = '/user';
 
     /**
      * Create a new controller instance.
@@ -27,7 +27,7 @@ class TeacherController extends DefaultLoginController
      */
     public function __construct()
     {
-        $this->middleware('guest:teacher')->except('logout');
+        $this->middleware('guest:user')->except('logout');
     }
 
     public function showLoginForm()
@@ -42,7 +42,7 @@ class TeacherController extends DefaultLoginController
 
     protected function guard()
     {
-        return Auth::guard('teacher');
+        return Auth::guard('user');
     }
 
     protected function attemptLogin(Request $request)
@@ -51,7 +51,7 @@ class TeacherController extends DefaultLoginController
         $credentials = $this->credentials($request);
         $credentials['user_type'] = 2; // Add any additional conditions you need
 
-        return $this->guard('teacher')->attempt(
+        return $this->guard('user')->attempt(
             $credentials,
             $request->filled('remember')
         );
