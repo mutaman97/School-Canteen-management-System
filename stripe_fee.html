@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculate Stripe Fee</title>
+    <meta charset="utf-8">
+    <style>
+        html {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: .75em;
+        }
+        form {
+            width: 600px;
+            text-align: center;
+        }
+        fieldset {
+            border-radius: 15px;
+        }
+        label {
+            float: left;
+            text-align: right;
+            margin-left: .5em;
+        }
+        input {
+            margin-left: .5em;
+        }
+        input, label {
+            margin-bottom: .25em;
+        }
+        .row::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .col-33 {
+            float: left;
+            width: 33.33%;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <form id="form">
+        <fieldset>
+            <legend>Calculate Stripe Fee %</legend>
+            <div class="row">
+                <div class="col-33">
+                    <label for="stripeFee">Total Stripe Fee:</label>
+                </div>
+                <div class="col-33">
+                    <input type="text" name="stripeFee" id="stripeFee">
+                </div>
+                <div class="col-33">
+                    <span id="stripeFeeError">&nbsp</span><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-33">
+                    <label for="grossDonation">Gross Donation:</label>
+                </div>
+                <div class="col-33">
+                    <input type="text" name="grossDonation" id="grossDonation">
+                </div>
+                <div class="col-33">
+                    <span id="grossDonationError">&nbsp</span><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-33">
+                    <label for="percentage">Stripe Fee Percentage:</label>
+                </div>
+                <div class="col-33">
+                    <input type="text" name="percentage" id="percentage" disabled><br>
+                </div>
+            </div>
+            <div class="row">
+                <input type="button" id="clear" value="Clear">&nbsp;
+                <input type="button" id="submit" value="Submit">
+            </div>
+        </fieldset>
+    </form>
+</main>
+<script>
+    "use strict";
+    let $ = function(id) {
+        return document.getElementById(id);
+    }
+    let calcFeePercentage = function() {
+        const THIRTY = 0.3;
+        let isValid = true;
+        let totalFee = $('stripeFee').value;
+        let gross = $('grossDonation').value;
+        let isCurrency = /^\d+(\.\d{1,2})?$/;
+        if (totalFee == '') {
+            $('stripeFeeError').firstChild.nodeValue = 'Required';
+            isValid = false;
+        } else if (!isCurrency.test(parseFloat(totalFee))) {
+            $('stripeFeeError').firstChild.nodeValue = 'Only numbers and .';
+            isValid = false;
+        } else if (parseFloat(totalFee) >= parseFloat(gross)) {
+            $('stripeFeeError').firstChild.nodeValue = 'Must be less than donation';
+            isValid = false;
+        } else {
+            $('stripeFeeError').firstChild.nodeValue = '';
+        }
+        if (gross == '') {
+            $('grossDonationError').firstChild.nodeValue = 'Required';
+            isValid = false;
+        } else if (!isCurrency.test(parseFloat(gross))) {
+            $('grossDonationError').firstChild.nodeValue = 'Only numbers and .';
+            isValid = false;
+        } else if (parseFloat(gross) <= parseFloat(totalFee)) {
+            $('grossDonationError').firstChild.nodeValue = 'Must be greater than fee';
+            isValid = false;
+        } else {
+            $('grossDonationError').firstChild.nodeValue = '';
+        }
+        if (isValid) {
+            totalFee = parseFloat(totalFee);
+            gross = parseFloat(gross);
+            let percentage = ((totalFee - THIRTY) / gross) * 100;
+            $('percentage').value = percentage.toFixed(1);
+        }
+    }
+    let clear = function() {
+        $('stripeFee').value = '';
+        $('grossDonation').value = '';
+        $('percentage').value = '';
+        $('stripeFeeError').firstChild.nodeValue = '';
+        $('grossDonationError').firstChild.nodeValue = '';
+        startingFocus();
+    }
+    let submit = function() {
+        $('percentage').value = '';
+        calcFeePercentage();
+    }
+    let init = function() {
+        $('submit').onclick = submit;
+        $('clear').onclick = clear;
+    }
+    let startingFocus = function() {
+        $('stripeFee').focus();
+    }
+    if (window.addEventListener) {
+        window.addEventListener('load', init, false);
+        window.addEventListener('load', startingFocus, false);
+    } else {
+        window.attachEvent('onload', init);
+        window.attachEvent('onload', startingFocus);
+    }
+</script>
+</body>
+</html>

@@ -50,7 +50,6 @@ class PlanController extends Controller
     public function depo(Student $student)
     {
 
-
         return view('parent.plan.deposit', compact('student'));
     }
 

@@ -80,7 +80,8 @@ class StripeController extends Controller
             $sessionId = $request->get('session_id');
 
             $session = \Stripe\Checkout\Session::retrieve($sessionId);
-            $charge = $session->amount_total/100;
+
+            $charge = round((($session->amount_total /100) - ($session->amount_total * 0.029 /100) - 1),2);
 
             $card_no = $session->client_reference_id;
 
