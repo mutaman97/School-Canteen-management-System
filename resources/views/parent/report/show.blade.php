@@ -13,7 +13,7 @@
     <div class="invoice" id="printableArea">
         <div class="row">
             <div class="col-7">
-                <h4 class="display-5">{{__('Invoice Number: ')}}{{ $data->id }}</h4>
+                <h4 class="display-5">{{__('Payment Number: ')}}{{ $data->id }}</h4>
             </div>
             <div class="col-5">
                 <h4 class="document-type display-5 text-right">{{ config('app.name') }}</h4>
