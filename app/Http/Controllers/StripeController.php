@@ -157,7 +157,7 @@ class StripeController extends Controller
 
     public function cancel()
     {
-
+        return view('checkout-cancel');
     }
 
     public function webhook()

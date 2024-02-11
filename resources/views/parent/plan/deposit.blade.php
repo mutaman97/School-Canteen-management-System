@@ -33,16 +33,17 @@
 {{--                @endif--}}
                 <div class="form-divider"></div>
                 <div class="card-body">
-                    <div class="current-banlence text-center mb-4">
-                        <p class="h4" class="text-dark">{{ __('Add Fund To') }}</p>
-                        <h4 class="text-primary">{{ $student->student_name }}</h4>
+                    <div class="current-banlencee text-center mb-4">
+                        <p class="h4">
+                            {{ __('Add Fund To:') }} <span class="text-primary font-weight-600">{{ $student->student_name }}</span>
+                        </p>
                     </div>
                     <form action="{{ route('checkout') }}" method="POST">
                         @csrf
-                        <div class="form-group row mb-4">
+                        <div class="form-group row">
 
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">{{ __('Enter Amount') }}</label>
-                            <div class="input-group col-sm-12 col-md-7">
+                            <div class="input-group col-sm-12 col-md-7 col-lg-4 pl-3">
                                 {{-- <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                                 </div> --}}
@@ -53,24 +54,21 @@
                                     <span class="input-group-text border-dark shadow">{{ __('AED') }}</span>
                                 </div>
                             </div>
+
                             <input type="hidden" id="deductionAmount" name="deductionAmount">
                             <div class="text-center text-success font-weight-bold  mx-auto pt-3 blink col-12" id="deduction_result"></div>
                             <div class="text-center text-danger font-weight-bold  mx-auto pt-3 blink col-12" id="deduction_result2"></div>
-                        </div>
 
-
-
-                        <input type="hidden" name="card_no" value="{{ $student->card_no }}">
-
-                        <div class="form-group row mb-0">
                             <div class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></div>
                             <div class="col-sm-12 col-md-7">
                                 <div class="custom-control custom-checkbox col-form-label">
                                     <input required="" type="checkbox" name="agree" class="custom-control-input" id="agree">
-                                    <label class="custom-control-label" for="agree">{{ __('I agree with the') }} <a href="https://stripe.com/ae/privacy" target="_blank">{{ __('Stripe Policy') }}</a></label>
+                                    <label class="custom-control-label" for="agree">{{ __('I agree with') }} <a href="https://stripe.com/ae/privacy" target="_blank">{{ __('Stripe Privacy Policy') }}</a></label>
                                 </div>
                             </div>
                         </div>
+
+                        <input type="hidden" name="card_no" value="{{ $student->card_no }}">
 
 
 
