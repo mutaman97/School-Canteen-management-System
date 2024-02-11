@@ -7,6 +7,10 @@
 @endsection
 
 @section('content')
+    <style>
+        .pricing .pricing-padding {
+            padding: 20px; }
+    </style>
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
         @if (Session::has('message'))
@@ -20,19 +24,19 @@
             <div class="pricing pricing-highlight shadow-lg">
                 <div class="pricing-padding">
                     <div class="user-item">
-                        <img alt="image" src="{{ __('https://ui-avatars.com/api/') . $student->student_name }}" class="img-fluid" width="200" height="200">
+                        <img alt="image" src="{{ __('https://ui-avatars.com/api/') . $student->student_name }}" class="img-fluid" width="180" height="180">
                         <div class="user-details">
-                            <div class="h4 ">{{ $student->student_name }}</div>
+                            <div class="h5 ">{{ $student->student_name }}</div>
 
                         </div>
                     </div>
-                    <div class="py-2">
-                        <div class="h6 text-center">{{__('Balance')}}</div>
-                        <div class="h3 text-primary">{{ $student->balance }}&nbsp;{{ __('AED') }}</div>
+                    <div class="py-1">
+                        <div class="h7 text-center">{{__('Balance')}}</div>
+                        <div class="h4 text-primary">{{ $student->balance }}&nbsp;{{ __('AED') }}</div>
                     </div>
                     <div class="pricing-details">
-                        <div class="h6 text-center">{{__('Card Number')}}</div>
-                        <div class="h3 text-center">{{__($student->card_no)}}</div>
+                        <div class="h7 text-center">{{__('Card Number')}}</div>
+                        <div class="h4 text-center pt-1">{{__($student->card_no)}}</div>
                     </div>
                 </div>
                 <div class="pricing-cta">
