@@ -13,6 +13,15 @@
 
         .pricing .pricing-cta {
             margin-top: 0px; }
+
+        .main-footer {
+            padding: 20px 30px 20px 280px;
+            margin-top: 0px;
+            color: #98a6ad;
+            background-color: #7952B3;
+            border-top: 1px solid #e3eaef;
+            display: inline-block;
+            width: 100%; }
     </style>
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
@@ -30,7 +39,6 @@
                         <img alt="image" src="{{ __('https://ui-avatars.com/api/') . $student->student_name }}" class="img-fluid" width="180" height="180">
                         <div class="user-details">
                             <div class="h5 ">{{ $student->student_name }}</div>
-
                         </div>
                     </div>
                     <div class="py-1">
