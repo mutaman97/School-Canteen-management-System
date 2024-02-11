@@ -33,7 +33,7 @@ class StripeController extends Controller
                     'name' => $student->student_name,
 //                    'images' => [$product->image]
                 ],
-                'unit_amount' => $request->input('amount') * 100 ,
+                'unit_amount' => round($request->input('amount'), 2) * 100 ,
             ],
             'quantity' => 1,
         ];
