@@ -9,7 +9,7 @@
 @section('content')
     <style>
         .pricing .pricing-padding {
-            padding: 20px; }
+            padding: 10px; }
     </style>
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
