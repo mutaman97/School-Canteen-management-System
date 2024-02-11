@@ -10,6 +10,9 @@
     <style>
         .pricing .pricing-padding {
             padding: 10px; }
+
+        .pricing .pricing-cta {
+            margin-top: 0px; }
     </style>
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
