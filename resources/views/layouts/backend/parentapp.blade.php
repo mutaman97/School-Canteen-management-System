@@ -52,6 +52,42 @@
 </head>
 
 <body>
+
+<style>
+    body {
+        background-color: #fff;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: "Nunito", "Segoe UI", arial;
+        /* font-family: "Nunito", "Nunito Arabic", "Segoe UI", Arial, sans-serif; */
+        /* font-family: 'Tajawal', sans serif; */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+        color: #6c757d; }
+
+    .pricing .pricing-padding {
+        padding: 10px; }
+
+    .pricing .pricing-cta {
+        margin-top: 0px; }
+
+    .main-content {
+        flex: 1;
+    }
+
+    .main-footer {
+        padding: 20px 30px 20px 280px;
+        color: #98a6ad;
+        background-color: #7952B3;
+        border-top: 1px solid #e3eaef;
+        width: 100%;
+    }
+</style>
+
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
         <!--- Header Section ---->

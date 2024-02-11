@@ -25,6 +25,11 @@
            font-family: "Nunito", "Segoe UI", arial;
            /* font-family: "Nunito", "Nunito Arabic", "Segoe UI", Arial, sans-serif; */
            /* font-family: 'Tajawal', sans serif; */
+           margin: 0;
+           padding: 0;
+           min-height: 100vh;
+           display: flex;
+           flex-direction: column;
 
            color: #6c757d; }
 

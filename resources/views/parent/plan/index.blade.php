@@ -7,17 +7,7 @@
 @endsection
 
 @section('content')
-    <style>
-        .pricing .pricing-padding {
-            padding: 10px; }
 
-        .pricing .pricing-cta {
-            margin-top: 0px; }
-
-        .main-footer {
-            margin-top: 0px;
-            width: 100%; }
-    </style>
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
         @if (Session::has('message'))
