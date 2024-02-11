@@ -43,15 +43,16 @@
                         <div class="form-group row">
 
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">{{ __('Enter Amount') }}</label>
-                            <div class="input-group col-sm-12 col-md-7 col-lg-4 pl-3">
+                            <div class="input-group col-sm-12 col-md-7 col-lg-6 pl-3">
                                 {{-- <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                                 </div> --}}
 {{--                                <input id="amount" type="number" placeholder="{{ __('Enter amount here ...') }}" required="" step="any" class="form-control border-dark shadow" name="amount">--}}
-                                <input id="amount" type="number" placeholder="{{ __('Enter amount here ...') }}" required="" step="any" class="form-control border-dark shadow" name="amount" min="100">
+                                <input id="amount" type="number" placeholder="{{ __('Enter amount here in AED ...') }}" required="" step="any" class="form-control shadow" name="amount" min="100">
 
-                                <div class="input-group-append">
-                                    <span class="input-group-text border-dark shadow">{{ __('AED') }}</span>
+                                <div class="input-group-append shadow-lg">
+{{--                                    <span class="input-group-text border-dark shadow">{{ __('AED') }}</span>--}}
+                                    <button type="submit" class="btn btn-primary">{{ __('Pay Now') }}</button>
                                 </div>
                             </div>
 
@@ -72,14 +73,14 @@
 
 
 
-                        <div class="form-group row mb-4">
-                            <div class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></div>
-                            <div class="col-sm-12 col-md-7">
-                                <div class="buton-btn float-right">
-                                    <button type="submit" class="btn btn-primary btn-lg shadow">{{ __('Next') }}</button>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="form-group row mb-4">--}}
+{{--                            <div class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></div>--}}
+{{--                            <div class="col-sm-12 col-md-7">--}}
+{{--                                <div class="buton-btn float-right">--}}
+{{--                                    <button type="submit" class="btn btn-primary btn-lg shadow">{{ __('Next') }}</button>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </form>
                 </div>
 

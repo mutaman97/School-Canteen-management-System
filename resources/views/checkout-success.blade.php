@@ -57,7 +57,7 @@
             display: block;
         }
         .cmn-btn.btn-bg-1 {
-            background: #6176f6;
+            background: #7952B3;
             color: #fff;
             border: 2px solid transparent;
             border-radius:3px;
