@@ -45,7 +45,15 @@
             </div>
         </form>
         <div class="simple-footer">
-            {{ __('Copyright') }} &copy; {{ Config::get('app.name') }} {{ date('Y') }}
+{{--            {{ __('Copyright') }} &copy; {{ Config::get('app.name') }} {{ date('Y') }}--}}
+
+                <a class="" href="tel:+971585778456">+971 585 778 456</a>
+                <div class="divider"></div>
+                <div class="divider"></div>
+            {{ __('Powered By') }} <a href="https://aldana-computers.com/eng" class="font-weight-bold" target="_blank" rel="noopener noreferrer">{{ __('Aldana Computer Technology') }}</a>&copy;
+                <div class="divider"></div>
+            {{__('1997')}} - {{ date('Y') }}
+
         </div>
     </div>
 @endsection

@@ -10,9 +10,9 @@
   	<a href="{{ url($button_link) }}" class="btn btn-primary">{{ $button_name }}</a>
   </div>
   @endisset
-  <div class="section-header-breadcrumb">
-  	  @foreach(request()->segments() as $segment)
-      <div class="breadcrumb-item">{{ $segment }}</div>
-      @endforeach
-  </div>
+{{--  <div class="section-header-breadcrumb">--}}
+{{--  	  @foreach(request()->segments() as $segment)--}}
+{{--      <div class="breadcrumb-item">{{ $segment }}</div>--}}
+{{--      @endforeach--}}
+{{--  </div>--}}
 </div>

@@ -14,13 +14,31 @@
       <link rel="stylesheet" href="{{ asset('admin/assets/css/components.css') }}">
    </head>
    <body>
+   <style>
+       .card.card-primary {
+           border: 1.5px solid #7952B3; }
+
+       body {
+           background-color: #fff;
+           font-size: 14px;
+           font-weight: 400;
+           font-family: "Nunito", "Segoe UI", arial;
+           /* font-family: "Nunito", "Nunito Arabic", "Segoe UI", Arial, sans-serif; */
+           /* font-family: 'Tajawal', sans serif; */
+
+           color: #6c757d; }
+
+       .simple-footer {
+           text-align: center;
+           margin: 0px;}
+   </style>
       <div id="app">
       <section class="section">
          <div class="container mt-5">
          <div class="row">
          <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
-               <img src="{{ asset('uploads/logo.png') }}" height="90" alt="">
+               <img src="{{ asset('uploads/logo.png') }}" height="70" alt="">
             </div>
             <div class="card card-primary shadow-lg">
                @yield('content')
