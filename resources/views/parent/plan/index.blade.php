@@ -15,12 +15,7 @@
             margin-top: 0px; }
 
         .main-footer {
-            padding: 20px 30px 20px 280px;
             margin-top: 0px;
-            color: #98a6ad;
-            background-color: #7952B3;
-            border-top: 1px solid #e3eaef;
-            display: inline-block;
             width: 100%; }
     </style>
 <div class="row">

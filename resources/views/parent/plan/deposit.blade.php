@@ -34,7 +34,7 @@
                 <div class="form-divider"></div>
                 <div class="card-body">
                     <div class="current-banlence text-center mb-4">
-                        <p class="h4" class="text-dark">{{ __('Add Balance To') }}</p>
+                        <p class="h4" class="text-dark">{{ __('Add Fund To') }}</p>
                         <h4 class="text-primary">{{ $student->student_name }}</h4>
                     </div>
                     <form action="{{ route('checkout') }}" method="POST">
@@ -47,7 +47,7 @@
                                 <span class="input-group-text">$</span>
                                 </div> --}}
 {{--                                <input id="amount" type="number" placeholder="{{ __('Enter amount here ...') }}" required="" step="any" class="form-control border-dark shadow" name="amount">--}}
-                                <input id="amount" type="number" placeholder="{{ __('Enter amount here ...') }}" required="" step="any" class="form-control border-dark shadow" name="amount" min="10">
+                                <input id="amount" type="number" placeholder="{{ __('Enter amount here ...') }}" required="" step="any" class="form-control border-dark shadow" name="amount" min="100">
 
                                 <div class="input-group-append">
                                     <span class="input-group-text border-dark shadow">{{ __('AED') }}</span>
@@ -105,7 +105,7 @@
                     $(document).ready(function() {
                         $('#amount').on('input', function (){
                             var amount = parseFloat($(this).val());
-                            if (!isNaN(amount) && amount >= 10) {
+                            if (!isNaN(amount) && amount >= 100) {
                                 var deducted_amount = (amount - (amount * 0.029) - 1 );
 
                                 // var deducted_amount =(amount+1)/.971;
@@ -118,7 +118,7 @@
                                 // $('#sss
                                 $('#deduction_result').hide();
                                 $('#deduction_result2').show();
-                                $('#deduction_result2').text("The amount should be greater or equal to 10");
+                                $('#deduction_result2').text("The amount should be greater than or equal to 100");
                                 $('#deductionAmount').val("");
                             }
                         });
