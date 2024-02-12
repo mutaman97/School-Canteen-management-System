@@ -39,8 +39,13 @@
     </a>
 </li>
 <li class="">
-    <a class="nav-link" href="{{ route('parent.logout') }}">
+    <a class="nav-link" href="{{ route('parent.logout') }} onclick="event.preventDefault();
+       document.getElementById('logout-form').submit();">
         <i class="fas fa-sign-out-alt"></i>
         <span>{{ __('Logout') }}</span>
     </a>
 </li>
+<form id="logout-form" action="{{ route('parent.logout') }}" method="POST" class="d-none">
+    @csrf
+</form>
+
