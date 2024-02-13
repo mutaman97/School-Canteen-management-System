@@ -83,7 +83,7 @@
 {{--                                @endphp--}}
                                 @forelse($data as $key =>$value)
                                     @php
-                                        $student = \App\Models\Student::where('student_code', $value->student_code)->firstOrFail();
+                                        $student = \App\Models\Student::where('card_no', $value->card_no)->firstOrFail();
                                         $name = $student->student_name;
                                     @endphp
                                 <tr>

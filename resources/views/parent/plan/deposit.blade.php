@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="col-sm-12 col-md-12 col-lg-4 float-right">
-                <div class="alert alert-warning alert-has-icon shadow-lg">
+                <div class="alert alert-danger font-weight-bold  alert-has-icon shadow-lg">
                     <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
                     <div class="alert-body">
                         <div class="alert-title">{{ __('Important Note') }}</div>
