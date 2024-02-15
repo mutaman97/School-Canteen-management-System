@@ -80,6 +80,15 @@ class StripeController extends Controller
             $sessionId = $request->get('session_id');
 
             $session = \Stripe\Checkout\Session::retrieve($sessionId);
+            if (!$session) {
+                throw new NotFoundHttpException;
+            }
+
+            $check_order=Order::where('trx_id', $sessionId)->exists();
+
+            if ($check_order) {
+                throw new NotFoundHttpException;
+            }
 
             $charge = round((($session->amount_total /100) - ($session->amount_total * 0.029 /100) - 1),2);
 
@@ -114,9 +123,12 @@ class StripeController extends Controller
 
             DB::commit();
             // all good
+            return view('checkout-success');
+
         } catch (\Exception $e) {
             DB::rollback();
             // something went wrong
+            throw new NotFoundHttpException();
         }
 
 
@@ -151,7 +163,6 @@ class StripeController extends Controller
 //            throw new NotFoundHttpException();
 //        }
 
-        return view('checkout-success');
 
     }
 
