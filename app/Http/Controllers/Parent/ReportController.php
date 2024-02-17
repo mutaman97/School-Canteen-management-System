@@ -27,7 +27,7 @@ class ReportController extends Controller
         $parent_code = Auth::guard('studentparent')->user()->parent_code;
 //        dd($parent_code);
 
-        $data = Order::where('parent_code', $parent_code);
+        $data = Order::where('parent_code', $parent_code)->latest();
 
         // $data = Order::with('getway', 'user','plan')->where('user_id', $id);
         if ($request->start_date || $request->end_date) {

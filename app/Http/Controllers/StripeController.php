@@ -87,7 +87,7 @@ class StripeController extends Controller
 
             $student = Student::where('card_no', $card_no)->firstOrFail();
             $old_balance= $student->balance;
-            $new_balance = $old_balance + $charge;
+            $new_balance = round($old_balance + $charge, '2');
 
             $current_time = now(); // Get the current Unix timestamp
 
