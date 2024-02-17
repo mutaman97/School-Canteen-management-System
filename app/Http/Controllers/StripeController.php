@@ -70,53 +70,46 @@ class StripeController extends Controller
 
     public function success(Request $request)
     {
-
-
-
         DB::beginTransaction();
 
         try {
             \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+
             $sessionId = $request->get('session_id');
-
             $session = \Stripe\Checkout\Session::retrieve($sessionId);
-            if (!$session) {
-                throw new NotFoundHttpException;
-            }
 
-            $check_order=Order::where('trx_id', $sessionId)->exists();
-
-            if ($check_order) {
+            if (!$session || Order::where('trx_id', $sessionId)->exists()) {
                 throw new NotFoundHttpException;
             }
 
             $charge = round((($session->amount_total /100) - ($session->amount_total * 0.029 /100) - 1),2);
-
             $card_no = $session->client_reference_id;
 
-            $student = Student::where('card_no', $card_no)->first();
+            $student = Student::where('card_no', $card_no)->firstOrFail();
             $old_balance= $student->balance;
             $new_balance = $old_balance + $charge;
 
-            $student->balance = $new_balance;
-
-
-            $current_time = time(); // Get the current Unix timestamp
-            $formatted_time = date("H:i:s", $current_time);
-            $formatted_date = date("Y-m-d", $current_time);
+            $current_time = now(); // Get the current Unix timestamp
 
             $order = new Order();
-
             $order->parent_code = $student->parent_code;
             $order->student_code = $student->student_code;
             $order->card_no = $card_no;
             $order->balance = $charge;
             $order->balance_before = $old_balance;
             $order->balance_after = $new_balance;
-            $order->balance_date = $formatted_date;
-            $order->balance_time = $formatted_time;
+            $order->balance_date = $current_time->toDateString();
+            $order->balance_time = $current_time->toTimeString();
             $order->user_id = 59;
             $order->trx_id = $session->id;
+
+            // Check if first_payment is null before updating
+            if ($student->first_payment === null) {
+                $student->update(['balance' => $new_balance, 'first_payment' => now()]);
+            }
+            else{
+                $student->update(['balance' => $new_balance]);
+            }
 
             $student->save();
             $order->save();
@@ -130,14 +123,6 @@ class StripeController extends Controller
             // something went wrong
             throw new NotFoundHttpException();
         }
-
-
-
-
-
-
-
-
 
 
 
