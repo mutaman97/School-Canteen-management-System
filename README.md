@@ -1,3 +1,4 @@
+
 # School Canteen Management System with RFID Cards
 
 Welcome to the School Canteen Management System README! This system is designed to streamline the operations of a school canteen by implementing RFID card technology for student transactions. Built using Laravel, this project provides an efficient and user-friendly solution for managing canteen purchases.
@@ -10,6 +11,12 @@ Welcome to the School Canteen Management System README! This system is designed 
 - **Transaction Tracking**: Tracks student transactions, including purchases made and remaining account balances.
 - **Reporting**: Generates reports on canteen sales, popular items, and student spending patterns.
 - **User Roles and Permissions**: Supports different user roles such as admin, staff, and cashier, with granular permissions control.
+
+## Built With
+
+- [Laravel](https://laravel.com/) - The PHP framework used for backend development.
+- [Bootstrap](https://getbootstrap.com/) - Frontend framework for building responsive and mobile-first websites.
+- [MySQL](https://www.mysql.com/) - Database management system used for storing canteen data.
 
 ## Getting Started
 
